@@ -27,6 +27,11 @@ body {
   background-attachment: fixed;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 ::selection {
@@ -101,6 +106,20 @@ body {
 
 .tag-soft {
   background: #fff;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    width: auto;
+  }
 }
 
 .btn-primary {

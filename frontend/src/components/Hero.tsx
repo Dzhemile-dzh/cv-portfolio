@@ -8,7 +8,7 @@ interface HeroProps {
 
 export function Hero({ profile }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center section-padding overflow-hidden pt-24" aria-labelledby="hero-heading">
+    <section className="relative min-h-screen flex items-center section-padding overflow-x-hidden pt-24" aria-labelledby="hero-heading">
       <motion.div
         className="absolute top-28 right-10 w-28 h-28 bg-[#f5c518] border-[3px] border-[#141414] hidden md:block"
         aria-hidden="true"
@@ -33,14 +33,14 @@ export function Hero({ profile }: HeroProps) {
           <div>
             <motion.h1
               id="hero-heading"
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+              className="font-display text-[clamp(1.75rem,8vw,3.75rem)] font-extrabold tracking-tight mb-6 leading-[1.05] max-w-full"
               initial={{ opacity: 0, x: -40, rotate: -4 }}
               animate={{ opacity: 1, x: 0, rotate: -1 }}
               transition={{ type: 'spring', stiffness: 120, damping: 14 }}
             >
-              <span className="bg-[#ff4d3a] text-white px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414] text-left">
-                <span className="block whitespace-nowrap">Full-Stack</span>
-                <span className="block whitespace-nowrap">Web Developer</span>
+              <span className="bg-[#ff4d3a] text-white px-3 sm:px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414] text-left max-w-full">
+                <span className="block">Full-Stack</span>
+                <span className="block">Web Developer</span>
               </span>
             </motion.h1>
 
@@ -64,7 +64,7 @@ export function Hero({ profile }: HeroProps) {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-3 mb-10"
+              className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-10 w-full"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.45 }}
@@ -131,12 +131,12 @@ export function Hero({ profile }: HeroProps) {
                 alt={`Portrait of ${profile.name}`}
                 width={360}
                 height={460}
-                className="relative w-72 sm:w-80 object-cover object-top border-[3px] border-[#141414] bg-white"
+                className="relative w-56 xs:w-64 sm:w-72 md:w-80 max-w-[85vw] object-cover object-top border-[3px] border-[#141414] bg-white"
                 loading="eager"
                 fetchPriority="high"
               />
               <motion.p
-                className="absolute -left-3 sm:-left-6 bottom-8 sm:bottom-12 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-2 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[4px_4px_0_#141414] max-w-[11rem] sm:max-w-[12rem] leading-snug"
+                className="absolute left-2 right-2 sm:-left-4 sm:right-auto bottom-6 sm:bottom-12 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-2 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[4px_4px_0_#141414] sm:max-w-[12rem] leading-snug text-center sm:text-left"
                 initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
                 animate={{
                   opacity: 1,

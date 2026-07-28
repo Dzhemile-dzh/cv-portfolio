@@ -11,6 +11,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { EducationSection } from './components/EducationSection';
 import { TeachingSection } from './components/TeachingSection';
 import { ContactSection, Footer } from './components/ContactSection';
+import { NotFoundPage } from './components/NotFoundPage';
 
 function LoadingScreen() {
   return (
@@ -25,7 +26,12 @@ function LoadingScreen() {
   );
 }
 
-function AppContent() {
+function normalizePath(pathname: string): string {
+  const cleaned = pathname.replace(/\/+$/, '');
+  return cleaned === '' ? '/' : cleaned;
+}
+
+function HomePage() {
   const [data, setData] = useState<PortfolioData | null>(null);
   const [seo, setSeo] = useState<SeoMeta>(fallbackSeo);
 
@@ -67,5 +73,11 @@ function AppContent() {
 }
 
 export default function App() {
-  return <AppContent />;
+  const path = normalizePath(window.location.pathname);
+
+  if (path !== '/' && path !== '/index.html') {
+    return <NotFoundPage />;
+  }
+
+  return <HomePage />;
 }
