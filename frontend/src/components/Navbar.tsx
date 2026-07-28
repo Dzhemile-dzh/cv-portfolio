@@ -83,11 +83,11 @@ export function Navbar() {
         </ul>
 
         <a
-          href="#contact"
+          href="/DzhemileAhmedCV.pdf"
+          download="DzhemileAhmedCV.pdf"
           className="hidden md:inline-flex btn-primary text-sm !py-2 !px-4"
-          onClick={(event) => handleNavClick(event, '#contact')}
         >
-          Get in touch
+          Get CV
         </a>
 
         <button
