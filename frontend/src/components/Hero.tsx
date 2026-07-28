@@ -24,7 +24,46 @@ export function Hero({ profile }: HeroProps) {
 
       <div className="container-max relative">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
-          <div>
+          <motion.div
+            className="flex justify-center order-1 lg:order-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+          >
+            <div className="relative">
+              <div
+                className="absolute -bottom-4 -right-4 w-full h-full bg-[#0f9d8a] border-[3px] border-[#141414]"
+                aria-hidden="true"
+              />
+              <img
+                src={profile.photo}
+                alt={`Portrait of ${profile.name}`}
+                width={360}
+                height={460}
+                className="relative w-56 sm:w-72 md:w-80 max-w-[85vw] object-cover object-top border-[3px] border-[#141414] bg-white"
+                loading="eager"
+                fetchPriority="high"
+              />
+              <motion.p
+                className="absolute left-2 right-2 sm:-left-4 sm:right-auto bottom-6 sm:bottom-12 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-2 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[4px_4px_0_#141414] sm:max-w-[12rem] leading-snug text-center sm:text-left"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  rotate: [-6, -2, -6],
+                }}
+                transition={{
+                  opacity: { delay: 0.4, duration: 0.3 },
+                  scale: { delay: 0.4, type: 'spring', stiffness: 200 },
+                  rotate: { delay: 0.6, duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
+                }}
+              >
+                Hi, I am Dzhemile Ahmed
+              </motion.p>
+            </div>
+          </motion.div>
+
+          <div className="order-2 lg:order-1">
             <motion.h1
               id="hero-heading"
               className="font-display text-[clamp(1.5rem,7vw,3.75rem)] font-extrabold tracking-tight mb-6 leading-[1.05]"
@@ -86,45 +125,6 @@ export function Hero({ profile }: HeroProps) {
               <SocialIconLinks socials={profile.socials} />
             </motion.div>
           </div>
-
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.1 }}
-          >
-            <div className="relative">
-              <div
-                className="absolute -bottom-4 -right-4 w-full h-full bg-[#0f9d8a] border-[3px] border-[#141414]"
-                aria-hidden="true"
-              />
-              <img
-                src={profile.photo}
-                alt={`Portrait of ${profile.name}`}
-                width={360}
-                height={460}
-                className="relative w-56 sm:w-72 md:w-80 max-w-[85vw] object-cover object-top border-[3px] border-[#141414] bg-white"
-                loading="eager"
-                fetchPriority="high"
-              />
-              <motion.p
-                className="absolute left-2 right-2 sm:-left-4 sm:right-auto bottom-6 sm:bottom-12 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-2 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[4px_4px_0_#141414] sm:max-w-[12rem] leading-snug text-center sm:text-left"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  rotate: [-6, -2, -6],
-                }}
-                transition={{
-                  opacity: { delay: 0.4, duration: 0.3 },
-                  scale: { delay: 0.4, type: 'spring', stiffness: 200 },
-                  rotate: { delay: 0.6, duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
-                }}
-              >
-                Hi, I am Dzhemile Ahmed
-              </motion.p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
