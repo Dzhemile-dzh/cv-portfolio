@@ -54,6 +54,9 @@ This repo is configured for Vercel via `vercel.json` (builds `frontend/`).
 2. Leave Root Directory empty (repo root)
 3. Deploy - no PHP needed on Vercel; content loads from `frontend/public/data/*.json`
 
+Optional: set `OPENAI_API_KEY` in Vercel env vars to power the CV chat with GPT.
+Without it, the chat still works using a local CV knowledge engine.
+
 Refresh static data after CV content changes:
 
 ```bash

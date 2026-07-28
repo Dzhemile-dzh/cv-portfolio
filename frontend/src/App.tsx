@@ -12,6 +12,7 @@ import { EducationSection } from './components/EducationSection';
 import { TeachingSection } from './components/TeachingSection';
 import { ContactSection, Footer } from './components/ContactSection';
 import { NotFoundPage } from './components/NotFoundPage';
+import { ChatWidget } from './components/ChatWidget';
 
 function LoadingScreen() {
   return (
@@ -68,6 +69,7 @@ function HomePage() {
         <ContactSection profile={data.profile} />
       </main>
       <Footer name={data.profile.name} />
+      <ChatWidget data={data} />
     </>
   );
 }

@@ -1,0 +1,148 @@
+import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import type { PortfolioData } from '../types';
+import { askAboutCv, type ChatMessage } from '../chat/chatEngine';
+
+interface ChatWidgetProps {
+  data: PortfolioData;
+}
+
+const suggestions = [
+  'Does she know PHP?',
+  'Where does she work now?',
+  'Does she teach kids?',
+  'Is she good with React?',
+];
+
+export function ChatWidget({ data }: ChatWidgetProps) {
+  const [open, setOpen] = useState(false);
+  const [input, setInput] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      role: 'assistant',
+      content: `Hi. I am trained on ${data.profile.name}'s CV. Ask me about her skills, jobs, teaching, or experience.`,
+    },
+  ]);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, open]);
+
+  const send = async (raw: string) => {
+    const question = raw.trim();
+    if (question === '' || busy) {
+      return;
+    }
+
+    setInput('');
+    setMessages((prev) => [...prev, { role: 'user', content: question }]);
+    setBusy(true);
+
+    const answer = await askAboutCv(question, data);
+    setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
+    setBusy(false);
+  };
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    void send(input);
+  };
+
+  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      void send(input);
+    }
+  };
+
+  return (
+    <>
+      <motion.button
+        type="button"
+        className="fixed bottom-5 right-5 z-[60] w-14 h-14 bg-[#ff4d3a] text-white border-[3px] border-[#141414] shadow-[4px_4px_0_#141414] font-display font-extrabold text-sm"
+        aria-label={open ? 'Close CV chat' : 'Open CV chat'}
+        onClick={() => setOpen((value) => !value)}
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.96 }}
+      >
+        {open ? 'X' : 'AI'}
+      </motion.button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.section
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 24, scale: 0.96 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-24 right-4 left-4 sm:left-auto sm:right-5 sm:w-[380px] z-[60] bg-white border-[3px] border-[#141414] shadow-[8px_8px_0_#141414] flex flex-col max-h-[70vh]"
+            aria-label="Ask about Dzhemile CV chat"
+          >
+            <header className="bg-[#141414] text-[#f5c518] px-4 py-3 border-b-[3px] border-[#141414]">
+              <p className="font-display font-extrabold text-sm">Ask about my CV</p>
+              <p className="font-mono text-[11px] text-white/70 mt-1">
+                Fed with real profile data - try &quot;Does she know PHP?&quot;
+              </p>
+            </header>
+
+            <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 bg-[#eef6f3]">
+              {messages.map((message, index) => (
+                <div
+                  key={`${message.role}-${index}`}
+                  className={`max-w-[90%] px-3 py-2 border-[2px] border-[#141414] text-sm leading-relaxed ${
+                    message.role === 'user'
+                      ? 'ml-auto bg-[#3aa0ff] text-[#141414]'
+                      : 'mr-auto bg-white text-[#141414]'
+                  }`}
+                >
+                  {message.content}
+                </div>
+              ))}
+              {busy && (
+                <div className="mr-auto bg-[#f5c518] border-[2px] border-[#141414] px-3 py-2 text-xs font-mono">
+                  Thinking with CV context...
+                </div>
+              )}
+              <div ref={bottomRef} />
+            </div>
+
+            <div className="px-3 pt-2 flex flex-wrap gap-2 border-t-[2px] border-[#141414] bg-white">
+              {suggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  className="text-[11px] font-semibold border-2 border-[#141414] px-2 py-1 bg-[#fff3c4] hover:bg-[#f5c518]"
+                  onClick={() => void send(suggestion)}
+                  disabled={busy}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+
+            <form onSubmit={onSubmit} className="p-3 border-t-[3px] border-[#141414] bg-white flex gap-2">
+              <textarea
+                value={input}
+                onChange={(event) => setInput(event.target.value)}
+                onKeyDown={onKeyDown}
+                rows={2}
+                placeholder="Ask about skills, jobs, teaching..."
+                className="flex-1 resize-none border-[2px] border-[#141414] px-2 py-2 text-sm outline-none focus:bg-[#eef6f3]"
+                disabled={busy}
+              />
+              <button
+                type="submit"
+                className="btn-primary !w-auto !px-3 self-end"
+                disabled={busy || input.trim() === ''}
+              >
+                Send
+              </button>
+            </form>
+          </motion.section>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
