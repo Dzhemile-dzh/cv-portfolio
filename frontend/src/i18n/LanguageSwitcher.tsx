@@ -10,7 +10,7 @@ export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
 
   return (
     <div
-      className={`inline-flex border-[3px] border-[#141414] bg-white shadow-[3px_3px_0_#141414] ${className}`}
+      className={`inline-flex border-2 border-[#141414] bg-white shadow-[2px_2px_0_#141414] ${className}`}
       role="group"
       aria-label="Language"
     >
@@ -22,7 +22,7 @@ export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
             type="button"
             onClick={() => setLocale(code)}
             aria-pressed={active}
-            className={`px-2.5 py-1 text-xs font-extrabold font-display tracking-wide transition-colors ${
+            className={`px-1.5 py-0.5 text-[10px] leading-none font-extrabold font-display tracking-wide transition-colors ${
               active ? 'bg-[#f5c518] text-[#141414]' : 'bg-white text-[#141414] hover:bg-[#eef6f3]'
             }`}
           >

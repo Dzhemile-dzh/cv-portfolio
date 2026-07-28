@@ -23,10 +23,5 @@ export function detectLocale(): Locale {
     return stored;
   }
 
-  const browser = window.navigator.language.toLowerCase();
-  if (browser.startsWith('bg')) {
-    return 'bg';
-  }
-
   return 'en';
 }
