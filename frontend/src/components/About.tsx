@@ -16,42 +16,46 @@ export function About({ profile }: AboutProps) {
           transition={{ duration: 0.45 }}
         >
           <SectionLabel>About</SectionLabel>
-          <h2 id="about-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-8 max-w-3xl leading-tight">
-            Building software by day.
-          </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-10">
-            <InfoCard title="Location" value={profile.location} color="teal" />
-            <InfoCard title="Email" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
-            <InfoCard title="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
-
-            <div className="hard-card-mustard p-5">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages</h3>
-              <ul className="space-y-2">
-                {profile.languages.map((lang) => (
-                  <li key={lang.name} className="flex justify-between text-sm font-semibold gap-2">
-                    <span>{lang.name}</span>
-                    <span className="font-mono text-[#6b2d5c]">{lang.level}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-8 lg:gap-10 items-start">
+            <div>
+              <h2 id="about-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-6 max-w-3xl leading-tight">
+                Building software by day.
+              </h2>
+              <p className="text-[#333] text-lg leading-relaxed">
+                {profile.about}
+              </p>
             </div>
 
-            <div className="hard-card-coral p-5">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Hobbies</h3>
-              <div className="flex flex-wrap gap-2">
-                {profile.hobbies.map((hobby) => (
-                  <span key={hobby} className="tag tag-soft" style={{ background: '#ffe8e2' }}>
-                    {hobby}
-                  </span>
-                ))}
+            <div className="flex flex-col gap-4">
+              <InfoCard title="Location" value={profile.location} color="teal" />
+              <InfoCard title="Email" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
+              <InfoCard title="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
+
+              <div className="hard-card-mustard p-5">
+                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages</h3>
+                <ul className="space-y-2">
+                  {profile.languages.map((lang) => (
+                    <li key={lang.name} className="flex justify-between text-sm font-semibold gap-2">
+                      <span>{lang.name}</span>
+                      <span className="font-mono text-[#6b2d5c]">{lang.level}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="hard-card-coral p-5">
+                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Hobbies</h3>
+                <div className="flex flex-wrap gap-2">
+                  {profile.hobbies.map((hobby) => (
+                    <span key={hobby} className="tag tag-soft" style={{ background: '#ffe8e2' }}>
+                      {hobby}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-
-          <p className="text-[#333] text-lg leading-relaxed max-w-4xl">
-            {profile.about}
-          </p>
         </motion.div>
       </div>
     </section>
