@@ -191,7 +191,9 @@ final class PortfolioData
                 'longDescription' => 'Demonstrates full-stack capabilities with a decoupled architecture: React SPA frontend with Framer Motion animations, PHP backend with PSR-4 autoloading, and production-ready SEO including sitemap and Open Graph meta tags.',
                 'technologies' => ['React', 'PHP 8.5', 'TypeScript', 'Tailwind CSS', 'Vite'],
                 'category' => 'Full-Stack',
-                'links' => [],
+                'links' => [
+                    ['label' => 'Source Code', 'url' => 'https://github.com/Dzhemile-dzh/cv-portfolio'],
+                ],
                 'featured' => true,
             ],
         ];
