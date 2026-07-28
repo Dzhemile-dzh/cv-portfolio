@@ -46,6 +46,21 @@ Or deploy with Apache/Nginx:
 2. Route non-file requests to `index.php` (`.htaccess` is included for Apache)
 3. Update `site_url` in `backend/config/app.php`
 
+### Vercel (static frontend)
+
+This repo is configured for Vercel via `vercel.json` (builds `frontend/`).
+
+1. Import the GitHub repo in Vercel
+2. Leave Root Directory empty (repo root)
+3. Deploy - no PHP needed on Vercel; content loads from `frontend/public/data/*.json`
+
+Refresh static data after CV content changes:
+
+```bash
+cd backend
+php scripts/export-static-data.php
+```
+
 ## Config
 
 `backend/config/app.php` holds site URL, social links, meta description, and SEO keywords.

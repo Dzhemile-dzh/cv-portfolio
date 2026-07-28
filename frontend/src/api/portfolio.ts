@@ -2,20 +2,28 @@ import type { PortfolioData, SeoMeta } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
-async function fetchJson<T>(endpoint: string): Promise<T> {
-  const response = await fetch(`${API_BASE}${endpoint}`);
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
+    throw new Error(`Request failed: ${response.status}`);
   }
   return response.json() as Promise<T>;
 }
 
+async function loadWithFallback<T>(primary: string, secondary: string): Promise<T> {
+  try {
+    return await fetchJson<T>(primary);
+  } catch {
+    return fetchJson<T>(secondary);
+  }
+}
+
 export function fetchPortfolio(): Promise<PortfolioData> {
-  return fetchJson<PortfolioData>('/api/all');
+  return loadWithFallback<PortfolioData>(`${API_BASE}/api/all`, '/data/portfolio.json');
 }
 
 export function fetchSeoMeta(): Promise<SeoMeta> {
-  return fetchJson<SeoMeta>('/api/seo/meta');
+  return loadWithFallback<SeoMeta>(`${API_BASE}/api/seo/meta`, '/data/seo.json');
 }
 
 export const fallbackPortfolio: PortfolioData = {
@@ -59,12 +67,12 @@ export const fallbackSeo: SeoMeta = {
   description: 'Experienced full-stack software engineer specializing in PHP, React, Drupal, and data science.',
   keywords: 'Full-Stack Developer, PHP, React, Drupal, Varna',
   author: 'Dzhemile Ahmed',
-  canonical: 'https://dzhemileahmed.dev',
+  canonical: 'https://cv-portfolio-ten-beryl.vercel.app',
   og: {
     type: 'website',
     title: 'Dzhemile Ahmed - Full-Stack Web Developer',
     description: 'Experienced full-stack software engineer specializing in PHP, React, Drupal, and data science.',
-    url: 'https://dzhemileahmed.dev',
+    url: 'https://cv-portfolio-ten-beryl.vercel.app',
     site_name: 'Dzhemile Ahmed Portfolio',
   },
   twitter: {

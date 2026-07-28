@@ -1,0 +1,52 @@
+{
+    "title": "Dzhemile Ahmed | Full-Stack Web Developer & Data Science Enthusiast",
+    "description": "Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science and machine learning.",
+    "keywords": "Full-Stack Developer, PHP Developer, React Developer, Drupal, Symfony, YII2, Data Science, Varna Bulgaria, Web Developer Portfolio",
+    "author": "Dzhemile Ahmed",
+    "canonical": "https://cv-portfolio-ten-beryl.vercel.app",
+    "image": "https://cv-portfolio-ten-beryl.vercel.app/profile.png",
+    "og": {
+        "type": "website",
+        "title": "Dzhemile Ahmed - Full-Stack Web Developer",
+        "description": "Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science and machine learning.",
+        "url": "https://cv-portfolio-ten-beryl.vercel.app",
+        "site_name": "Dzhemile Ahmed Portfolio",
+        "image": "https://cv-portfolio-ten-beryl.vercel.app/profile.png"
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Dzhemile Ahmed - Full-Stack Web Developer",
+        "description": "Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science and machine learning."
+    },
+    "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dzhemile Ahmed",
+        "jobTitle": "Full-Stack Web Developer",
+        "description": "Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science, eager to apply technical expertise in data analysis and machine learning to solve complex problems. Also teaching programming to children in grades 2-4 through Roblox and Minecraft Education. Seeking a challenging role in a dynamic organization to contribute with my skills and grow further.",
+        "email": "dzhemile.ahmet@gmail.com",
+        "telephone": "(+359) 895627511",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Varna",
+            "addressCountry": "BG"
+        },
+        "url": "https://cv-portfolio-ten-beryl.vercel.app",
+        "image": "https://cv-portfolio-ten-beryl.vercel.app/profile.png",
+        "sameAs": [
+            "https://www.linkedin.com/in/dzhemile-ahmed-42icdi/",
+            "https://github.com/Dzhemile-dzh",
+            "https://public.tableau.com/app/profile/dzhemile.ahmed5149/vizzes"
+        ],
+        "knowsAbout": [
+            "PHP",
+            "React",
+            "JavaScript",
+            "Drupal",
+            "Data Science",
+            "MySQL",
+            "Roblox",
+            "Minecraft Education"
+        ]
+    }
+}

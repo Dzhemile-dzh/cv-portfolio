@@ -8,7 +8,7 @@ return [
     'email' => 'dzhemile.ahmet@gmail.com',
     'phone' => '(+359) 895627511',
     'location' => 'Varna, Bulgaria',
-    'site_url' => 'https://dzhemileahmed.dev',
+    'site_url' => 'https://cv-portfolio-ten-beryl.vercel.app',
     'linkedin' => 'https://www.linkedin.com/in/dzhemile-ahmed-42icdi/',
     'github' => 'https://github.com/Dzhemile-dzh',
     'tableau' => 'https://public.tableau.com/app/profile/dzhemile.ahmed5149/vizzes',
