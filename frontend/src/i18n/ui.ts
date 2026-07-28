@@ -83,6 +83,8 @@ export interface UiMessages {
   chat: {
     open: string;
     close: string;
+    button: string;
+    closeButton: string;
     title: string;
     subtitle: string;
     welcome: string;
@@ -180,6 +182,8 @@ const en: UiMessages = {
   chat: {
     open: 'Open CV chat',
     close: 'Close CV chat',
+    button: 'CHAT',
+    closeButton: 'X',
     title: 'Ask about my CV',
     subtitle: 'Fed with real profile data - try "Does she know PHP?"',
     welcome: "Hi. I am trained on {name}'s CV. Ask me about her skills, jobs, teaching, or experience.",
@@ -283,6 +287,8 @@ const bg: UiMessages = {
   chat: {
     open: 'Отвори чат за CV',
     close: 'Затвори чат',
+    button: 'ЧАТ',
+    closeButton: 'X',
     title: 'Питай за CV-то ми',
     subtitle: 'Базиран на реални данни - опитайте „Знае ли PHP?“',
     welcome: 'Здравейте. Познавам CV-то на {name}. Питайте за умения, работа, обучение или опит.',

@@ -67,7 +67,7 @@ export function ChatWidget({ data }: ChatWidgetProps) {
         whileTap={{ scale: 0.96 }}
         className="fixed bottom-5 right-5 z-[60] min-w-14 h-14 px-2 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] shadow-[5px_5px_0_#ff4d3a] font-display font-extrabold text-xs tracking-wide"
       >
-        {open ? 'X' : 'CHAT'}
+        {open ? t.chat.closeButton : t.chat.button}
       </motion.button>
 
       <AnimatePresence>
