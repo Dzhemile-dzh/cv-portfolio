@@ -60,19 +60,19 @@ export function Hero({ profile }: HeroProps) {
           </motion.div>
 
           <motion.div
-            className="relative mb-6 w-full max-w-2xl"
+            className="relative mb-8 w-full max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.45 }}
           >
             <h1
               id="hero-heading"
-              className="font-display text-[clamp(1.35rem,4.5vw,2.5rem)] font-extrabold tracking-tight leading-none bg-white text-[#141414] border-[3px] border-[#141414] shadow-[5px_5px_0_#141414] px-4 sm:px-6 py-3 sm:py-3.5"
+              className="font-display text-[clamp(1.35rem,4.5vw,2.5rem)] font-extrabold tracking-tight leading-none bg-white text-[#141414] border-[3px] border-[#141414] shadow-[5px_5px_0_#141414] px-4 sm:px-6 py-3 sm:py-3.5 pb-5 sm:pb-6"
             >
               {t.hero.title}
             </h1>
             <motion.p
-              className="absolute -bottom-3 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left"
+              className="absolute -bottom-5 right-2 sm:right-5 z-10 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35 }}
