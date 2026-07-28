@@ -26,7 +26,7 @@ export function Hero({ profile }: HeroProps) {
             transition={{ duration: 0.45 }}
           >
             <div
-              className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full bg-[#0f9d8a] border-[3px] border-[#141414]"
+              className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full bg-[#0f9d8a]"
               aria-hidden="true"
             />
             <img
