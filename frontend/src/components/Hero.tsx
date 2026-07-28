@@ -19,41 +19,43 @@ export function Hero({ profile }: HeroProps) {
             transition={{ duration: 0.55 }}
           >
             <p className="font-mono text-sm mb-4 bg-[#0f9d8a] text-white inline-block px-3 py-1 border-2 border-[#141414]">
-              yes, another portfolio — but with opinions
+              Full-stack developer based in Varna
+            </p>
+
+            <p className="font-display text-2xl sm:text-3xl font-bold text-[#555] mb-3">
+              Hi, I&apos;m {profile.name}
             </p>
 
             <h1 id="hero-heading" className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 leading-[1.05]">
-              Hi, I&apos;m{' '}
-              <span className="bg-[#ff4d3a] text-white px-2 border-[3px] border-[#141414] inline-block -rotate-1">
-                {profile.name}
+              <span className="bg-[#ff4d3a] text-white px-3 py-1 border-[3px] border-[#141414] inline-block -rotate-1">
+                {profile.title}
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl font-bold mb-2">{profile.title}</p>
             <p className="text-lg text-[#6b2d5c] font-semibold mb-6">
-              Also: {profile.subtitle.toLowerCase()} (and professional sarcasm)
+              {profile.subtitle}
             </p>
 
             <p className="text-[#333] max-w-xl text-lg leading-relaxed mb-8">
-              I write PHP that doesn&apos;t cry, React that behaves, and PDFs that print.
-              If you&apos;re looking for buzzwords without delivery — wrong site.
+              I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.
+              If you need someone who delivers, you are in the right place.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
               <a href="#projects" className="btn-primary">
-                Show me the work
+                View projects
               </a>
               <a href={`mailto:${profile.email}`} className="btn-secondary">
-                Send coffee / job offer
+                Contact me
               </a>
               <a href="/DzhemileAhmedCV.pdf" download="DzhemileAhmedCV.pdf" className="btn-ghost">
-                Download the boring PDF
+                Download CV
               </a>
             </div>
 
             <div className="flex flex-wrap gap-2">
               {profile.socials.map((social, i) => {
-                const colors = ['bg-[#3aa0ff]', 'bg-[#141414] text-white', 'bg-[#f5c518]'];
+                const colors = ['bg-[#3aa0ff] text-[#141414]', 'bg-[#141414] text-white', 'bg-[#f5c518] text-[#141414]'];
                 return (
                   <a
                     key={social.name}
@@ -86,9 +88,6 @@ export function Hero({ profile }: HeroProps) {
                 loading="eager"
                 fetchPriority="high"
               />
-              <p className="absolute -left-6 bottom-10 bg-[#f5c518] border-[3px] border-[#141414] px-3 py-2 font-mono text-xs font-semibold rotate-[-6deg] max-w-[10rem]">
-                yes, this is me. no stock photo energy.
-              </p>
             </div>
           </motion.div>
         </div>

@@ -17,8 +17,8 @@ export function About({ profile }: AboutProps) {
         >
           <SectionLabel>About</SectionLabel>
           <h2 id="about-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-8 max-w-3xl leading-tight">
-            I ship code. I also teach kids to ship Roblox games.
-            <span className="block text-[#ff4d3a] mt-2">Priorities, people.</span>
+            Building software by day.
+            <span className="block text-[#ff4d3a] mt-2">Teaching kids to code after hours.</span>
           </h2>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -36,18 +36,15 @@ export function About({ profile }: AboutProps) {
               <p className="text-[#333] text-lg leading-relaxed hard-card p-6">
                 {profile.about}
               </p>
-              <p className="font-mono text-sm bg-[#f5c518] border-[3px] border-[#141414] p-4 inline-block">
-                Fun fact from my GitHub bio: sarcasm will save us. Still waiting on peer review for that claim.
-              </p>
             </div>
 
             <div className="space-y-4">
-              <InfoCard title="Currently nesting in" value={profile.location} color="teal" />
-              <InfoCard title="Inbox (please use it)" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
-              <InfoCard title="Phone (humans only)" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
+              <InfoCard title="Location" value={profile.location} color="teal" />
+              <InfoCard title="Email" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
+              <InfoCard title="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
 
               <div className="hard-card-mustard p-5">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages I argue in</h3>
+                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages</h3>
                 <ul className="space-y-2">
                   {profile.languages.map((lang) => (
                     <li key={lang.name} className="flex justify-between text-sm font-semibold">
@@ -59,10 +56,10 @@ export function About({ profile }: AboutProps) {
               </div>
 
               <div className="hard-card-coral p-5">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Off-duty chaos</h3>
+                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Hobbies</h3>
                 <div className="flex flex-wrap gap-2">
                   {profile.hobbies.map((hobby) => (
-                    <span key={hobby} className="tag bg-[#ffe8e2]">
+                    <span key={hobby} className="tag tag-soft" style={{ background: '#ffe8e2' }}>
                       {hobby}
                     </span>
                   ))}

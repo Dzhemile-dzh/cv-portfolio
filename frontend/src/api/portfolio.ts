@@ -47,7 +47,7 @@ export const fallbackPortfolio: PortfolioData = {
   certifications: [],
   teaching: {
     role: 'Programming Instructor',
-    audience: 'Children, Grades 2–4',
+    audience: 'Children, Grades 2-4',
     description: 'Teaching programming fundamentals to young learners through Roblox and Minecraft Education.',
     highlights: [],
     technologies: ['Roblox Studio', 'Minecraft Education Edition'],

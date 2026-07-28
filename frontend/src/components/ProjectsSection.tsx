@@ -23,11 +23,11 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         >
           <SectionLabel>Projects</SectionLabel>
           <h2 id="projects-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Things I actually built
+            Selected projects
           </h2>
           <p className="text-[#333] mb-12 max-w-2xl font-medium">
-            Client work stays private (shocking, I know). What you get here is the honest shortlist —
-            plus Tableau dashboards that prove I can make numbers look less depressing.
+            A mix of client work and personal projects. Some repos stay private under NDA,
+            but the stack and outcomes are still here.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -38,7 +38,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
           {others.length > 0 && (
             <>
-              <h3 className="font-display text-2xl font-extrabold mb-6">Also in the archive</h3>
+              <h3 className="font-display text-2xl font-extrabold mb-6">More projects</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {others.map((project, index) => (
                   <ProjectCard key={project.id} project={project} index={index} />
@@ -63,9 +63,9 @@ function ProjectCard({ project, index, featured = false }: { project: Project; i
       className={`${cardStyles[index % cardStyles.length]} p-6 flex flex-col ${featured ? 'md:min-h-[300px]' : ''}`}
     >
       <div className="flex items-start justify-between mb-3 gap-2">
-        <span className="tag bg-[#141414] text-white border-white">{project.category}</span>
+        <span className="tag tag-ink">{project.category}</span>
         {project.featured && (
-          <span className="tag bg-[#ff4d3a] text-white">worth reading</span>
+          <span className="tag tag-coral">Featured</span>
         )}
       </div>
 
@@ -80,7 +80,7 @@ function ProjectCard({ project, index, featured = false }: { project: Project; i
 
       <div className="flex flex-wrap gap-1.5 mb-4">
         {project.technologies.map((tech) => (
-          <span key={tech} className="tag bg-[#eef6f3]">
+          <span key={tech} className="tag tag-soft" style={{ background: '#eef6f3' }}>
             {tech}
           </span>
         ))}
@@ -96,13 +96,13 @@ function ProjectCard({ project, index, featured = false }: { project: Project; i
               rel="noopener noreferrer"
               className="text-sm font-bold underline decoration-2 underline-offset-4 hover:text-[#ff4d3a]"
             >
-              {link.label} →
+              {link.label}
             </a>
           ))}
         </div>
       ) : (
         <p className="mt-auto pt-4 border-t-2 border-[#141414] font-mono text-xs text-[#666]">
-          No public repo — NDA said hello.
+          Private client project
         </p>
       )}
     </motion.article>

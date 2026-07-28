@@ -20,10 +20,10 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
         >
           <SectionLabel>Experience</SectionLabel>
           <h2 id="experience-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Places that paid me to break things carefully
+            Work experience
           </h2>
           <p className="mb-12 max-w-2xl font-medium text-[#333]">
-            Chronological proof that I leave codebases better than I found them. Usually.
+            Roles where I shipped real products, cleaned up legacy code, and kept things maintainable.
           </p>
 
           <div className="space-y-6">

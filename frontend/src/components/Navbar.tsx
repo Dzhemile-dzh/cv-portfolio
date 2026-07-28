@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Jobs' },
+  { href: '#experience', label: 'Experience' },
   { href: '#teaching', label: 'Teaching' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
-  { href: '#education', label: 'Papers' },
-  { href: '#contact', label: 'Hire me' },
+  { href: '#education', label: 'Education' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
@@ -30,7 +30,7 @@ export function Navbar() {
       <nav className="container-max flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <a href="#" className="font-display font-extrabold text-xl tracking-tight">
           <span className="bg-[#ff4d3a] text-white px-2 py-0.5 border-2 border-[#141414]">DA</span>
-          <span className="ml-2 hidden sm:inline">not another portfolio</span>
+          <span className="ml-2 hidden sm:inline">Portfolio</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-1">
@@ -47,7 +47,7 @@ export function Navbar() {
         </ul>
 
         <a href="#contact" className="hidden md:inline-flex btn-primary text-sm !py-2 !px-4">
-          Email me already
+          Get in touch
         </a>
 
         <button

@@ -4,11 +4,11 @@ import App from './App';
 import './index.css';
 
 console.log(
-  '%cYou opened the console. Bold move.',
+  '%cLooking under the hood?',
   'color: #ff4d3a; font-size: 14px; font-weight: bold; background: #141414; padding: 4px 8px;',
 );
 console.log(
-  '%cThis site has personality, PHP, and exactly zero indigo glassmorphism. Hire the human, not the template.',
+  '%cIf you like what you see, send an email. Dzhemile is open to good opportunities.',
   'color: #0f9d8a; font-size: 12px;',
 );
 

@@ -27,10 +27,10 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
         >
           <SectionLabel>Skills</SectionLabel>
           <h2 id="skills-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Tools I have receipts for
+            Technical skills
           </h2>
           <p className="mb-12 max-w-xl font-medium text-[#333]">
-            Not a logo zoo. Just the stack I&apos;ve actually shipped with — and yes, PHP is still undefeated.
+            Technologies I use day to day, from PHP backends to data tools and teaching platforms.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -46,7 +46,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
                 <h3 className="font-display font-extrabold text-lg mb-4">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill) => (
-                    <span key={skill} className="tag bg-white">
+                    <span key={skill} className="tag tag-soft">
                       {skill}
                     </span>
                   ))}

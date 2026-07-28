@@ -19,10 +19,10 @@ export function EducationSection({ education, certifications }: EducationSection
         >
           <SectionLabel>Education</SectionLabel>
           <h2 id="education-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Degrees, badges, and proof I finish courses
+            Education and certifications
           </h2>
           <p className="mb-12 max-w-xl font-medium text-[#333]">
-            Click the certificates. They&apos;re real. Unlike half the &quot;AI experts&quot; on LinkedIn.
+            Formal studies plus verified certificates you can open and check.
           </p>
 
           <div className="grid lg:grid-cols-2 gap-10">
@@ -67,7 +67,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
       <p className="text-xs text-[#555] mt-1">{cert.issuer}</p>
       {cert.url !== '' && (
         <span className="inline-block text-xs font-bold mt-2 text-[#ff4d3a]">
-          verify me →
+          verify certificate
         </span>
       )}
     </>

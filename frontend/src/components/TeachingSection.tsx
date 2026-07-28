@@ -18,23 +18,23 @@ export function TeachingSection({ teaching }: TeachingSectionProps) {
         >
           <SectionLabel>Teaching</SectionLabel>
           <h2 id="teaching-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Debugging kids before production
+            Teaching programming to kids
           </h2>
           <p className="text-[#333] mb-10 max-w-2xl font-medium">
-            {teaching.description} Their code reviews are somehow still nicer than LinkedIn comments.
+            {teaching.description}
           </p>
 
           <div className="hard-card-teal p-8 lg:p-10">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
               <div>
                 <h3 className="font-display text-2xl font-extrabold">{teaching.role}</h3>
-                <p className="font-mono text-sm font-bold mt-2 bg-[#f5c518] inline-block px-2 py-1 border-2 border-[#141414]">
+                <p className="font-mono text-sm font-bold mt-2 bg-[#f5c518] text-[#141414] inline-block px-2 py-1 border-2 border-[#141414]">
                   {teaching.audience}
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <span className="tag bg-[#ff4d3a] text-white">Roblox</span>
-                <span className="tag bg-[#0f9d8a] text-white">Minecraft Education</span>
+                <span className="tag tag-coral">Roblox</span>
+                <span className="tag tag-teal">Minecraft Education</span>
               </div>
             </div>
 
@@ -49,7 +49,7 @@ export function TeachingSection({ teaching }: TeachingSectionProps) {
 
             <div className="flex flex-wrap gap-2 pt-6 border-t-[3px] border-[#141414]">
               {teaching.technologies.map((tech) => (
-                <span key={tech} className="tag bg-white">
+                <span key={tech} className="tag tag-soft">
                   {tech}
                 </span>
               ))}
