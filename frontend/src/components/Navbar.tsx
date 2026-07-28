@@ -1,15 +1,7 @@
 import { useEffect, useState, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#teaching', label: 'Teaching' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#education', label: 'Education' },
-  { href: '#contact', label: 'Contact' },
-];
+import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const HEADER_OFFSET = 80;
 
@@ -26,8 +18,19 @@ function scrollToSection(hash: string): void {
 }
 
 export function Navbar() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { href: '#about', label: t.nav.about },
+    { href: '#experience', label: t.nav.experience },
+    { href: '#teaching', label: t.nav.teaching },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#education', label: t.nav.education },
+    { href: '#contact', label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -54,10 +57,10 @@ export function Navbar() {
         scrolled || mobileOpen ? 'bg-[#eef6f3]/95 border-b-[3px] border-[#141414] backdrop-blur-sm' : 'bg-transparent'
       }`}
     >
-      <nav className="container-max flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <nav className="container-max flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 gap-3" aria-label="Main navigation">
         <a
           href="#"
-          className="font-display font-extrabold text-xl tracking-tight"
+          className="font-display font-extrabold text-xl tracking-tight shrink-0"
           onClick={(event) => {
             event.preventDefault();
             setMobileOpen(false);
@@ -65,7 +68,7 @@ export function Navbar() {
           }}
         >
           <span className="bg-[#ff4d3a] text-white px-2 py-0.5 border-2 border-[#141414]">DA</span>
-          <span className="ml-2 hidden sm:inline">Portfolio</span>
+          <span className="ml-2 hidden sm:inline">{t.nav.portfolio}</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-1">
@@ -82,31 +85,33 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <a
-            href="/DzhemileAhmedCV.pdf"
-            download="DzhemileAhmedCV.pdf"
-            className="btn-primary text-sm !py-2 !px-4"
+        <div className="flex items-center gap-2 shrink-0">
+          <LanguageSwitcher />
+          <div className="hidden lg:block">
+            <a
+              href="/DzhemileAhmedCV.pdf"
+              download="DzhemileAhmedCV.pdf"
+              className="btn-primary text-sm !py-2 !px-4"
+            >
+              {t.nav.getCv}
+            </a>
+          </div>
+          <button
+            type="button"
+            className="lg:hidden p-2 border-2 border-[#141414] bg-white"
+            aria-label={t.nav.toggleMenu}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
           >
-            Get CV
-          </a>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="lg:hidden p-2 border-2 border-[#141414] bg-white"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
       </nav>
 
       <AnimatePresence>
@@ -136,7 +141,7 @@ export function Navbar() {
                   className="block px-3 py-3 font-semibold hover:bg-[#0f9d8a] hover:text-white border-2 border-transparent hover:border-[#141414]"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Get CV
+                  {t.nav.getCv}
                 </a>
               </li>
             </ul>

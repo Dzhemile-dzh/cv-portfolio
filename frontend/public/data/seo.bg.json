@@ -1,0 +1,20 @@
+{
+  "title": "Джемиле Ахмед | Full-Stack уеб разработчик и Data Science ентусиаст",
+  "description": "Опитен full-stack софтуерен инженер със специализация в PHP, React, Drupal и data science. Базирана във Варна, България.",
+  "keywords": "Full-Stack разработчик, PHP, React, Drupal, Data Science, Варна, България",
+  "author": "Dzhemile Ahmed",
+  "canonical": "https://cv-portfolio-ten-beryl.vercel.app",
+  "og": {
+    "type": "website",
+    "title": "Джемиле Ахмед - Full-Stack уеб разработчик",
+    "description": "Опитен full-stack софтуерен инженер със специализация в PHP, React, Drupal и data science.",
+    "url": "https://cv-portfolio-ten-beryl.vercel.app",
+    "site_name": "Портфолио на Джемиле Ахмед"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Джемиле Ахмед - Full-Stack уеб разработчик",
+    "description": "Опитен full-stack софтуерен инженер със специализация в PHP, React, Drupal и data science."
+  },
+  "jsonLd": {}
+}

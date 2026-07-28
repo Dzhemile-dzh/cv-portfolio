@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import type { Project } from '../types';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -9,6 +10,7 @@ interface ProjectsSectionProps {
 const cardStyles = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky', 'hard-card'];
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
+  const { t } = useLanguage();
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
 
@@ -21,14 +23,11 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.45 }}
         >
-          <SectionLabel>Projects</SectionLabel>
+          <SectionLabel>{t.projects.label}</SectionLabel>
           <h2 id="projects-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Selected projects
+            {t.projects.heading}
           </h2>
-          <p className="text-[#333] mb-12 max-w-2xl font-medium">
-            A mix of client work and personal projects. Some repos stay private under NDA,
-            but the stack and outcomes are still here.
-          </p>
+          <p className="text-[#333] mb-12 max-w-2xl font-medium">{t.projects.intro}</p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             {featured.map((project, index) => (
@@ -38,7 +37,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
           {others.length > 0 && (
             <>
-              <h3 className="font-display text-2xl font-extrabold mb-6">More projects</h3>
+              <h3 className="font-display text-2xl font-extrabold mb-6">{t.projects.more}</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {others.map((project, index) => (
                   <ProjectCard key={project.id} project={project} index={index} />
@@ -53,6 +52,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 }
 
 function ProjectCard({ project, index, featured = false }: { project: Project; index: number; featured?: boolean }) {
+  const { t } = useLanguage();
+
   return (
     <motion.article
       id={`projects/${project.id}`}
@@ -64,9 +65,7 @@ function ProjectCard({ project, index, featured = false }: { project: Project; i
     >
       <div className="flex items-start justify-between mb-3 gap-2">
         <span className="tag tag-ink">{project.category}</span>
-        {project.featured && (
-          <span className="tag tag-coral">Featured</span>
-        )}
+        {project.featured && <span className="tag tag-coral">{t.projects.featured}</span>}
       </div>
 
       <h3 className="font-display text-xl font-extrabold mb-2">{project.title}</h3>
@@ -102,7 +101,7 @@ function ProjectCard({ project, index, featured = false }: { project: Project; i
         </div>
       ) : (
         <p className="mt-auto pt-4 border-t-2 border-[#141414] font-mono text-xs text-[#666]">
-          Private client project
+          {t.projects.privateProject}
         </p>
       )}
     </motion.article>

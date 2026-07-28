@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
+import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 
 export function NotFoundPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-16 relative overflow-hidden">
+      <div className="absolute top-4 right-4 z-10">
+        <LanguageSwitcher />
+      </div>
       <motion.div
         className="absolute top-16 left-8 w-20 h-20 bg-[#f5c518] border-[3px] border-[#141414]"
         aria-hidden="true"
@@ -22,7 +29,7 @@ export function NotFoundPage() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          ERROR 404
+          {t.notFound.error}
         </motion.p>
 
         <motion.h1
@@ -32,7 +39,7 @@ export function NotFoundPage() {
           transition={{ type: 'spring', stiffness: 140, damping: 12 }}
         >
           <span className="bg-[#ff4d3a] text-white px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[8px_8px_0_#141414]">
-            Lost?
+            {t.notFound.title}
           </span>
         </motion.h1>
 
@@ -42,7 +49,7 @@ export function NotFoundPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          This page does not exist. Or it did, and then someone refactor-deleted it without telling anyone.
+          {t.notFound.body}
         </motion.p>
 
         <motion.p
@@ -51,7 +58,7 @@ export function NotFoundPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
         >
-          Status: still not hired from this URL either.
+          {t.notFound.status}
         </motion.p>
 
         <motion.div
@@ -61,10 +68,10 @@ export function NotFoundPage() {
           transition={{ delay: 0.35 }}
         >
           <a href="/" className="btn-primary w-full sm:w-auto">
-            Take me home
+            {t.notFound.home}
           </a>
           <a href="mailto:dzhemile.ahmet@gmail.com" className="btn-ghost w-full sm:w-auto">
-            Blame me by email
+            {t.notFound.email}
           </a>
         </motion.div>
       </div>

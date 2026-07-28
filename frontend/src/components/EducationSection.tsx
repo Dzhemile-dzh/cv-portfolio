@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import type { Education, Certification } from '../types';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface EducationSectionProps {
   education: Education[];
@@ -8,6 +9,8 @@ interface EducationSectionProps {
 }
 
 export function EducationSection({ education, certifications }: EducationSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="education" className="section-padding bg-[#e8f0ff]" aria-labelledby="education-heading">
       <div className="container-max">
@@ -17,17 +20,15 @@ export function EducationSection({ education, certifications }: EducationSection
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.45 }}
         >
-          <SectionLabel>Education</SectionLabel>
+          <SectionLabel>{t.education.label}</SectionLabel>
           <h2 id="education-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Education and certifications
+            {t.education.heading}
           </h2>
-          <p className="mb-12 max-w-xl font-medium text-[#333]">
-            Formal studies plus verified certificates you can open and check.
-          </p>
+          <p className="mb-12 max-w-xl font-medium text-[#333]">{t.education.intro}</p>
 
           <div className="grid lg:grid-cols-2 gap-10">
             <div>
-              <h3 className="font-display text-xl font-extrabold mb-5">School</h3>
+              <h3 className="font-display text-xl font-extrabold mb-5">{t.education.school}</h3>
               <div className="space-y-4">
                 {education.map((edu, i) => (
                   <div
@@ -43,7 +44,7 @@ export function EducationSection({ education, certifications }: EducationSection
             </div>
 
             <div>
-              <h3 className="font-display text-xl font-extrabold mb-5">Certifications</h3>
+              <h3 className="font-display text-xl font-extrabold mb-5">{t.education.certifications}</h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {certifications.map((cert, i) => (
                   <CertificationCard key={`${cert.name}-${cert.issuer}`} cert={cert} index={i} />
@@ -58,6 +59,7 @@ export function EducationSection({ education, certifications }: EducationSection
 }
 
 function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
+  const { t } = useLanguage();
   const styles = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky'];
   const className = `${styles[index % styles.length]} p-4 block group`;
 
@@ -66,9 +68,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
       <h4 className="text-sm font-bold leading-snug group-hover:underline">{cert.name}</h4>
       <p className="text-xs text-[#555] mt-1">{cert.issuer}</p>
       {cert.url !== '' && (
-        <span className="inline-block text-xs font-bold mt-2 text-[#ff4d3a]">
-          verify certificate
-        </span>
+        <span className="inline-block text-xs font-bold mt-2 text-[#ff4d3a]">{t.education.verify}</span>
       )}
     </>
   );

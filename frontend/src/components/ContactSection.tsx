@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import { SocialIconLinks } from './SocialIconLinks';
 import type { Profile } from '../types';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface ContactSectionProps {
   profile: Profile;
 }
 
 export function ContactSection({ profile }: ContactSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="section-padding section-band bg-[#ff4d3a]" aria-labelledby="contact-heading">
       <div className="container-max">
@@ -18,14 +21,11 @@ export function ContactSection({ profile }: ContactSectionProps) {
           transition={{ duration: 0.45 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <SectionLabel>Contact</SectionLabel>
+          <SectionLabel>{t.contact.label}</SectionLabel>
           <h2 id="contact-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4 text-white">
-            Let&apos;s talk
+            {t.contact.heading}
           </h2>
-          <p className="text-white/95 mb-10 font-medium">
-            Open to full-stack and backend roles, as well as data science projects.
-            Feel free to reach out with a clear brief or opportunity.
-          </p>
+          <p className="text-white/95 mb-10 font-medium">{t.contact.intro}</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <a href={`mailto:${profile.email}`} className="btn-secondary w-full sm:w-auto">
@@ -47,6 +47,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
 }
 
 export function Footer({ name }: { name: string }) {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
   return (
     <footer className="py-8 bg-[#141414] text-[#f5c518]">
@@ -54,7 +55,7 @@ export function Footer({ name }: { name: string }) {
         <p>
           &copy; {year} {name}
         </p>
-        <p className="font-mono text-xs text-white/70">Built with React and PHP 8.5</p>
+        <p className="font-mono text-xs text-white/70">{t.footer.builtWith}</p>
       </div>
     </footer>
   );

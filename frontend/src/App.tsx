@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchPortfolio, fetchSeoMeta, fallbackPortfolio, fallbackSeo } from './api/portfolio';
 import type { PortfolioData, SeoMeta } from './types';
+import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
 import { SeoHead } from './components/SeoHead';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -15,12 +16,14 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { ChatWidget } from './components/ChatWidget';
 
 function LoadingScreen() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#eef6f3]">
       <div className="flex flex-col items-center gap-4">
         <div className="w-12 h-12 border-[3px] border-[#141414] border-t-[#ff4d3a] animate-spin" />
         <p className="font-mono text-sm font-bold bg-[#f5c518] border-2 border-[#141414] px-3 py-1">
-          Loading opinions...
+          {t.loading}
         </p>
       </div>
     </div>
@@ -33,18 +36,34 @@ function normalizePath(pathname: string): string {
 }
 
 function HomePage() {
+  const { locale, t } = useLanguage();
   const [data, setData] = useState<PortfolioData | null>(null);
   const [seo, setSeo] = useState<SeoMeta>(fallbackSeo);
 
   useEffect(() => {
+    setData(null);
     Promise.all([
-      fetchPortfolio().catch(() => fallbackPortfolio),
-      fetchSeoMeta().catch(() => fallbackSeo),
+      fetchPortfolio(locale).catch(() => fallbackPortfolio),
+      fetchSeoMeta(locale).catch(() => fallbackSeo),
     ]).then(([portfolio, seoMeta]) => {
       setData(portfolio);
-      setSeo(seoMeta);
+      setSeo({
+        ...seoMeta,
+        title: t.seo.title,
+        description: t.seo.description,
+        og: {
+          ...seoMeta.og,
+          title: t.seo.title,
+          description: t.seo.description,
+        },
+        twitter: {
+          ...seoMeta.twitter,
+          title: t.seo.title,
+          description: t.seo.description,
+        },
+      });
     });
-  }, []);
+  }, [locale, t.seo.title, t.seo.description]);
 
   if (data === null) {
     return <LoadingScreen />;
@@ -52,7 +71,7 @@ function HomePage() {
 
   return (
     <>
-      <SeoHead meta={seo} />
+      <SeoHead meta={seo} locale={locale} />
       <Navbar />
       <main>
         <Hero profile={data.profile} />
@@ -74,7 +93,7 @@ function HomePage() {
   );
 }
 
-export default function App() {
+function AppRoutes() {
   const path = normalizePath(window.location.pathname);
 
   if (path !== '/' && path !== '/index.html') {
@@ -82,4 +101,12 @@ export default function App() {
   }
 
   return <HomePage />;
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppRoutes />
+    </LanguageProvider>
+  );
 }

@@ -2,29 +2,29 @@ import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 
 import { AnimatePresence, motion } from 'framer-motion';
 import type { PortfolioData } from '../types';
 import { askAboutCv, type ChatMessage } from '../chat/chatEngine';
+import { useLanguage } from '../i18n/LanguageContext';
+import { interpolate } from '../i18n/ui';
 
 interface ChatWidgetProps {
   data: PortfolioData;
 }
 
-const suggestions = [
-  'Does she know PHP?',
-  'Where does she work now?',
-  'Does she teach kids?',
-  'Is she good with React?',
-];
-
 export function ChatWidget({ data }: ChatWidgetProps) {
+  const { locale, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'assistant',
-      content: `Hi. I am trained on ${data.profile.name}'s CV. Ask me about her skills, jobs, teaching, or experience.`,
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setMessages([
+      {
+        role: 'assistant',
+        content: interpolate(t.chat.welcome, { name: data.profile.name }),
+      },
+    ]);
+  }, [locale, t.chat.welcome, data.profile.name]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -40,7 +40,7 @@ export function ChatWidget({ data }: ChatWidgetProps) {
     setMessages((prev) => [...prev, { role: 'user', content: question }]);
     setBusy(true);
 
-    const answer = await askAboutCv(question, data);
+    const answer = await askAboutCv(question, data, locale);
     setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
     setBusy(false);
   };
@@ -61,7 +61,7 @@ export function ChatWidget({ data }: ChatWidgetProps) {
     <>
       <motion.button
         type="button"
-        aria-label={open ? 'Close CV chat' : 'Open CV chat'}
+        aria-label={open ? t.chat.close : t.chat.open}
         onClick={() => setOpen((value) => !value)}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.96 }}
@@ -78,13 +78,11 @@ export function ChatWidget({ data }: ChatWidgetProps) {
             exit={{ opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-24 right-4 left-4 sm:left-auto sm:right-5 sm:w-[380px] z-[60] bg-white border-[3px] border-[#141414] shadow-[8px_8px_0_#141414] flex flex-col max-h-[70vh]"
-            aria-label="Ask about Dzhemile CV chat"
+            aria-label={t.chat.title}
           >
             <header className="bg-[#141414] text-[#f5c518] px-4 py-3 border-b-[3px] border-[#141414]">
-              <p className="font-display font-extrabold text-sm">Ask about my CV</p>
-              <p className="font-mono text-[11px] text-white/70 mt-1">
-                Fed with real profile data - try &quot;Does she know PHP?&quot;
-              </p>
+              <p className="font-display font-extrabold text-sm">{t.chat.title}</p>
+              <p className="font-mono text-[11px] text-white/70 mt-1">{t.chat.subtitle}</p>
             </header>
 
             <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 bg-[#eef6f3]">
@@ -102,14 +100,14 @@ export function ChatWidget({ data }: ChatWidgetProps) {
               ))}
               {busy && (
                 <div className="mr-auto bg-[#f5c518] border-[2px] border-[#141414] px-3 py-2 text-xs font-mono">
-                  Thinking with CV context...
+                  {t.chat.thinking}
                 </div>
               )}
               <div ref={bottomRef} />
             </div>
 
             <div className="px-3 pt-2 flex flex-wrap gap-2 border-t-[2px] border-[#141414] bg-white">
-              {suggestions.map((suggestion) => (
+              {t.chat.suggestions.map((suggestion) => (
                 <button
                   key={suggestion}
                   type="button"
@@ -128,7 +126,7 @@ export function ChatWidget({ data }: ChatWidgetProps) {
                 onChange={(event) => setInput(event.target.value)}
                 onKeyDown={onKeyDown}
                 rows={2}
-                placeholder="Ask about skills, jobs, teaching..."
+                placeholder={t.chat.placeholder}
                 className="flex-1 resize-none border-[2px] border-[#141414] px-2 py-2 text-sm outline-none focus:bg-[#eef6f3]"
                 disabled={busy}
               />
@@ -137,7 +135,7 @@ export function ChatWidget({ data }: ChatWidgetProps) {
                 className="btn-primary !w-auto !px-3 self-end"
                 disabled={busy || input.trim() === ''}
               >
-                Send
+                {t.chat.send}
               </button>
             </form>
           </motion.section>

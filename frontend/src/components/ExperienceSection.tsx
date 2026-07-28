@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import type { Experience } from '../types';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface ExperienceSectionProps {
   experience: Experience[];
@@ -9,6 +10,8 @@ interface ExperienceSectionProps {
 const accents = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky', 'hard-card'];
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="section-padding bg-[#d9f5ef]" aria-labelledby="experience-heading">
       <div className="container-max">
@@ -18,13 +21,11 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.45 }}
         >
-          <SectionLabel>Experience</SectionLabel>
+          <SectionLabel>{t.experience.label}</SectionLabel>
           <h2 id="experience-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Work experience
+            {t.experience.heading}
           </h2>
-          <p className="mb-12 max-w-2xl font-medium text-[#333]">
-            Roles where I shipped real products, cleaned up legacy code, and kept things maintainable.
-          </p>
+          <p className="mb-12 max-w-2xl font-medium text-[#333]">{t.experience.intro}</p>
 
           <div className="space-y-6">
             {experience.map((job, index) => (

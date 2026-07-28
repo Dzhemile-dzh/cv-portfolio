@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import type { Profile } from '../types';
 import { SocialIconLinks } from './SocialIconLinks';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface HeroProps {
   profile: Profile;
 }
 
 export function Hero({ profile }: HeroProps) {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative min-h-[100svh] flex items-center overflow-x-hidden px-4 sm:px-6 lg:px-8 pt-20 pb-8"
@@ -52,7 +55,7 @@ export function Hero({ profile }: HeroProps) {
                 rotate: { delay: 0.55, duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
               }}
             >
-              Hi, I am Dzhemile Ahmed
+              {t.hero.greeting}
             </motion.p>
           </motion.div>
 
@@ -66,7 +69,7 @@ export function Hero({ profile }: HeroProps) {
               id="hero-heading"
               className="font-display text-[clamp(1.35rem,4.5vw,2.5rem)] font-extrabold tracking-tight leading-none bg-white text-[#141414] border-[3px] border-[#141414] shadow-[5px_5px_0_#141414] px-4 sm:px-6 py-3 sm:py-3.5"
             >
-              Full-Stack Web Developer
+              {t.hero.title}
             </h1>
             <motion.p
               className="absolute -bottom-3 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left w-[6.5rem] sm:w-[7.5rem]"
@@ -74,8 +77,8 @@ export function Hero({ profile }: HeroProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35 }}
             >
-              <span className="block">Data Science</span>
-              <span className="block">Enthusiast</span>
+              <span className="block">{profile.subtitle.split(' ')[0]} {profile.subtitle.split(' ')[1]}</span>
+              <span className="block">{profile.subtitle.split(' ').slice(2).join(' ')}</span>
             </motion.p>
           </motion.div>
 
@@ -85,12 +88,8 @@ export function Hero({ profile }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.4 }}
           >
-            <span className="block">
-              I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.
-            </span>
-            <span className="block">
-              If you need someone who delivers, you are in the right place.
-            </span>
+            <span className="block">{t.hero.pitchLine1}</span>
+            <span className="block">{t.hero.pitchLine2}</span>
           </motion.p>
 
           <motion.div
@@ -104,16 +103,16 @@ export function Hero({ profile }: HeroProps) {
               download="DzhemileAhmedCV.pdf"
               className="btn-primary !py-2.5 !px-4 text-sm"
             >
-              Download CV
+              {t.hero.downloadCv}
             </a>
             <a
               href="#projects"
               className="btn-ghost !py-2.5 !px-4 text-sm !shadow-[4px_4px_0_#141414] hover:!shadow-[6px_6px_0_#141414]"
             >
-              View projects
+              {t.hero.viewProjects}
             </a>
             <a href={`mailto:${profile.email}`} className="btn-ghost !py-2.5 !px-4 text-sm">
-              Contact me
+              {t.hero.contactMe}
             </a>
           </motion.div>
 

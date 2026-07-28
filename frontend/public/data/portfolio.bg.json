@@ -1,0 +1,424 @@
+{
+  "profile": {
+    "name": "Dzhemile Ahmed",
+    "title": "Full-Stack уеб разработчик",
+    "subtitle": "Data Science ентусиаст",
+    "email": "dzhemile.ahmet@gmail.com",
+    "phone": "(+359) 895627511",
+    "location": "Варна, България",
+    "photo": "/profile.png",
+    "about": "Опитен full-stack софтуерен инженер с над 7 години опит в уеб разработката, със специализация в PHP frameworks, JavaScript и бази данни. Страстна към data science и готова да прилага техническите си умения в анализ на данни и machine learning за решаване на сложни проблеми. Обучава и деца от 2. до 4. клас на програмиране чрез Roblox и Minecraft Education. Търси предизвикателна роля в динамична организация, където да допринася и да се развива.",
+    "socials": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dzhemile-ahmed-42icdi/",
+        "icon": "linkedin"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Dzhemile-dzh",
+        "icon": "github"
+      },
+      {
+        "name": "Tableau",
+        "url": "https://public.tableau.com/app/profile/dzhemile.ahmed5149/vizzes",
+        "icon": "tableau"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Български",
+        "level": "Роден"
+      },
+      {
+        "name": "Английски",
+        "level": "B2"
+      },
+      {
+        "name": "Турски",
+        "level": "C2"
+      }
+    ],
+    "hobbies": [
+      "Живопис с маслени бои",
+      "Шах"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Vero Digital Solutions",
+      "type": "Немска софтуерна компания",
+      "role": "Full-Stack / Backend PHP разработчик",
+      "period": "2025.01 - Настояще",
+      "highlights": [
+        "Разработвам и поддържам PHP 8.5 printout API, който генерира професионални PDF-и за клиенти в строителната индустрия (екосистема BauBuddy).",
+        "Изграждам и портирам printout маршрути с Twig/Latte шаблони, schema-driven документни модели и multi-engine рендиране (Playwright, wkhtmltopdf, DOCX).",
+        "Интегрирам външни API-та чрез cURL (включително паралелни multi-call заявки), authentication principals и йерархично зареждане на документи/схеми.",
+        "Поддържам високо качество на кода с PHPStan, Rector, Mago, Stylelint, PHPUnit и Docker-базирани локални/CI процеси."
+      ],
+      "technologies": [
+        "PHP 8.5",
+        "Twig",
+        "Latte",
+        "Playwright",
+        "Docker",
+        "PHPStan",
+        "GitLab CI",
+        "PSL"
+      ]
+    },
+    {
+      "company": "INDEAVR",
+      "type": "Аутсорсинг компания",
+      "role": "Backend уеб разработчик с PHP",
+      "period": "2023.08 - 2025.01",
+      "highlights": [
+        "Разработвам и поддържам Drupal модули и теми с PHP 8.",
+        "Използвам Pantheon и TFS за контрол на версиите и осигурявам качество с SonarCloud.",
+        "Работя в крос-функционални екипи за чист и поддържаем код."
+      ],
+      "technologies": [
+        "Drupal",
+        "PHP",
+        "Pantheon",
+        "SonarCloud",
+        "TFS"
+      ]
+    },
+    {
+      "company": "MTG Dolphin",
+      "type": "Корабостроителна компания",
+      "role": "Fullstack уеб разработчик",
+      "period": "2023.02 - 2023.08",
+      "highlights": [
+        "Отговарях за front-end и back-end разработката на портал за корабостроителна компания.",
+        "Подобрих ефективността на вътрешния портал с YII2, MySQL и JavaScript."
+      ],
+      "technologies": [
+        "YII2",
+        "MySQL",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "company": "Mobile Wave Solutions",
+      "type": "Аутсорсинг компания",
+      "role": "Софтуерен разработчик",
+      "period": "2021.04 - 2022.12",
+      "highlights": [
+        "Създавах и обновявах уебсайтове в гемблинг индустрията с PHP Phalcon framework.",
+        "Оценка и имплементация на задачи; част от code review и estimation процеса.",
+        "Писах unit и end-to-end тестове; Agile методология в Jira.",
+        "Опит с React, Swagger документация и Twig шаблони."
+      ],
+      "technologies": [
+        "PHP",
+        "Phalcon",
+        "React",
+        "MySQL",
+        "Twig",
+        "Swagger",
+        "Jira"
+      ]
+    },
+    {
+      "company": "Gambling Insider",
+      "type": "Бизнес медия за гемблинг индустрията",
+      "role": "Backend уеб разработчик",
+      "period": "2019.03 - 2021.04",
+      "highlights": [
+        "Разработвах и поддържах backend код с OOP в PHP, MVC архитектура и JavaScript.",
+        "Използвах Smarty шаблони; създавах CRM системи за бизнес нужди.",
+        "Създавах схеми и дизайн на бази данни с data modeler.",
+        "Писах чист, ефективен и добре документиран код за поддръжка и скалируемост."
+      ],
+      "technologies": [
+        "PHP",
+        "MVC",
+        "JavaScript",
+        "Smarty",
+        "MySQL"
+      ]
+    },
+    {
+      "company": "Broadcom",
+      "type": "Производител на полупроводници",
+      "role": "Софтуерен експерт по програмиране и дизайн",
+      "period": "2018.11 - 2019.01",
+      "highlights": [
+        "Програмиране и дизайн на аналогови и цифрови полупроводникови схеми.",
+        "Интензивна работа с Verilog/VHDL."
+      ],
+      "technologies": [
+        "Verilog",
+        "VHDL"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "api-printout-vero",
+      "title": "API Printout платформа (Vero / BauBuddy)",
+      "description": "Корпоративен PHP 8.5 printout сервис, който превръща строителна документация в брандирани PDF-и. Поддържа множество render engines, schema-driven форми и десетки клиентски маршрути.",
+      "longDescription": "Изграждане и поддръжка на printout маршрути за немски клиенти в строителството/скелетата: извличане на данни от BauBuddy API-та, типизирани route конфигурации, Latte/Twig HTML шаблони, Playwright и legacy wkhtmltopdf PDF генериране, плюс DOCX конверсия. Силен фокус върху статичен анализ (PHPStan), Docker, GitLab CI и паралелни API заявки за производителност.",
+      "technologies": [
+        "PHP 8.5",
+        "Latte",
+        "Twig",
+        "Playwright",
+        "Docker",
+        "PHPStan",
+        "GitLab CI",
+        "PSL"
+      ],
+      "category": "Full-Stack",
+      "links": [],
+      "featured": true
+    },
+    {
+      "id": "drupal-enterprise-modules",
+      "title": "Enterprise Drupal модулен пакет",
+      "description": "Персонализирани Drupal модули и теми за enterprise клиенти с PHP 8 и модерни Drupal API-та. Включва content workflows, REST интеграции и Pantheon-оптимизирани deployment пайплайни със SonarCloud.",
+      "longDescription": "Водих backend разработката на преизползваеми Drupal модули за аутсорсинг клиент. Имплементирах custom entity types, migration инструменти и theme компоненти. Интегрирах CI/CD с Pantheon и наложих качество чрез SonarCloud.",
+      "technologies": [
+        "Drupal",
+        "PHP 8",
+        "Pantheon",
+        "SonarCloud",
+        "Twig"
+      ],
+      "category": "Backend",
+      "links": [],
+      "featured": true
+    },
+    {
+      "id": "shipbuilding-portal",
+      "title": "Вътрешен портал за корабостроене",
+      "description": "Full-stack вътрешен портал за корабостроителна компания. Преработени наследени процеси с YII2 MVC, оптимизирани MySQL заявки и интерактивни JavaScript табла, намалили ръчното въвеждане с 40%.",
+      "longDescription": "Доставих end-to-end функционалности за управление на документи, проследяване на проекти и репортинг. Преработих схемата на базата за производителност, въведох role-based достъп и responsive UI компоненти за теренни екипи.",
+      "technologies": [
+        "YII2",
+        "MySQL",
+        "JavaScript",
+        "PHP",
+        "Bootstrap"
+      ],
+      "category": "Full-Stack",
+      "links": [],
+      "featured": true
+    },
+    {
+      "id": "gaming-platform-api",
+      "title": "Gaming платформа API и frontend",
+      "description": "Платформа с висок трафик в гемблинг индустрията върху PHP Phalcon с React SPA frontend. REST API с Swagger документация, Twig views, unit и E2E тестове в Agile процес.",
+      "longDescription": "Участвах в оценка, имплементация и code review. Изграждах React компоненти за player dashboards, интегрирах Phalcon API endpoints и поддържах Swagger документация.",
+      "technologies": [
+        "Phalcon",
+        "React",
+        "MySQL",
+        "Twig",
+        "Swagger",
+        "Jest"
+      ],
+      "category": "Full-Stack",
+      "links": [],
+      "featured": true
+    },
+    {
+      "id": "crm-publishing-system",
+      "title": "CRM система за издателство",
+      "description": "Персонализирана CRM за медийна компания в гемблинг индустрията. PHP MVC backend със Smarty шаблони, автоматизирани lead pipelines и schema дизайн чрез data modeler.",
+      "longDescription": "Проектирах схеми на база данни, изграждах админ интерфейси и интегрирах third-party API-та за маркетинг автоматизация. Фокус върху чиста OOP архитектура и добра документация.",
+      "technologies": [
+        "PHP",
+        "MVC",
+        "Smarty",
+        "JavaScript",
+        "MySQL"
+      ],
+      "category": "Backend",
+      "links": [],
+      "featured": false
+    },
+    {
+      "id": "data-viz-dashboard",
+      "title": "Dashboard за визуализация на данни",
+      "description": "Интерактивни Tableau dashboards за бизнес аналитика. Комбинира MySQL data pipelines с визуално разказване за вземане на решения.",
+      "longDescription": "Личен data science проект, показващ Tableau умения заедно със SQL аналитика. Изследва портфолио метрики, технологични тенденции и интерактивни филтри.",
+      "technologies": [
+        "Tableau",
+        "MySQL",
+        "Python",
+        "Excel"
+      ],
+      "category": "Data Science",
+      "links": [
+        {
+          "label": "Tableau Public",
+          "url": "https://public.tableau.com/app/profile/dzhemile.ahmed5149/vizzes"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "portfolio-website",
+      "title": "Това портфолио",
+      "description": "Модерно CV портфолио с React 19 и PHP 8.5 API. SEO оптимизация, JSON-LD, responsive дизайн и RESTful backend за съдържанието.",
+      "longDescription": "Демонстрира full-stack умения с разединена архитектура: React SPA с Framer Motion, PHP backend с PSR-4 autoloading и production-ready SEO включително sitemap и Open Graph.",
+      "technologies": [
+        "React",
+        "PHP 8.5",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite"
+      ],
+      "category": "Full-Stack",
+      "links": [
+        {
+          "label": "Изходен код",
+          "url": "https://github.com/Dzhemile-dzh/cv-portfolio"
+        }
+      ],
+      "featured": true
+    }
+  ],
+  "skills": {
+    "Back-End": [
+      "PHP",
+      "PHP 8.5",
+      "YII2",
+      "Phalcon",
+      "Symfony",
+      "Drupal",
+      "Django",
+      "Python",
+      "Latte",
+      "Twig"
+    ],
+    "Front-End": [
+      "JavaScript",
+      "React",
+      "CSS",
+      "SASS",
+      "Twig",
+      "Bootstrap",
+      "Playwright"
+    ],
+    "Бази данни": [
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Oracle"
+    ],
+    "Контрол на версии": [
+      "GitLab",
+      "Azure DevOps",
+      "TFS",
+      "Git"
+    ],
+    "Data Science": [
+      "Tableau",
+      "Data Modeler",
+      "Excel",
+      "Python"
+    ],
+    "DevOps и инструменти": [
+      "Docker",
+      "Jenkins",
+      "Pantheon",
+      "SonarCloud",
+      "Swagger",
+      "GitLab CI",
+      "PHPStan",
+      "Rector"
+    ],
+    "Обучение и образователни технологии": [
+      "Roblox Studio",
+      "Minecraft Education Edition",
+      "Lua",
+      "STEM Education"
+    ]
+  },
+  "education": [
+    {
+      "institution": "Технически университет - Варна",
+      "degree": "Магистър, Софтуерно инженерство",
+      "period": "2019 - Настояще"
+    },
+    {
+      "institution": "Технически университет - Варна",
+      "degree": "Бакалавър, Софтуерни и интернет технологии",
+      "period": "2014 - 2018"
+    },
+    {
+      "institution": "Професионална гимназия по икономика, Варна",
+      "degree": "Съдружник в малък и среден бизнес",
+      "period": "2010 - 2014"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Tableau for Data Visualization",
+      "issuer": "Analyst Builder",
+      "url": "https://www.analystbuilder.com/achievements/verify/KXC0TGGHX5?r=rjknME2fHZAU107OJBxk9RSCx"
+    },
+    {
+      "name": "MySQL for Data Analytics",
+      "issuer": "Analyst Builder",
+      "url": "https://www.analystbuilder.com/achievements/verify/2CAKHDN5XT?r=ftNP0jBdW9JZg4xmrgz6Pmhpo"
+    },
+    {
+      "name": "Data Fundamentals",
+      "issuer": "IBM",
+      "url": "https://www.credly.com/badges/8a3adec8-3cee-45ed-8185-2e4da1a40d7f/public_url"
+    },
+    {
+      "name": "Web Development Fundamentals",
+      "issuer": "IBM",
+      "url": "https://www.credly.com/badges/b59c1fab-1d3a-4d27-90be-cbbf43a7d30c/public_url"
+    },
+    {
+      "name": "CS50's Introduction to Programming with Python",
+      "issuer": "Harvard University",
+      "url": "https://certificates.cs50.io/1030dd02-9b3f-43ee-9899-a7471117c289.pdf?size=letter"
+    },
+    {
+      "name": "Programming Basics with Python",
+      "issuer": "SoftUni",
+      "url": "https://softuni.bg/certificates/details/100518/9451b099"
+    },
+    {
+      "name": "JavaScript OOP",
+      "issuer": "Code with Mosh",
+      "url": ""
+    },
+    {
+      "name": "Mastering React",
+      "issuer": "Code with Mosh",
+      "url": ""
+    },
+    {
+      "name": "Database Foundation",
+      "issuer": "Oracle",
+      "url": ""
+    }
+  ],
+  "teaching": {
+    "role": "Инструктор по програмиране",
+    "audience": "Деца, 2. – 4. клас",
+    "description": "Обучавам млади ученици на основите на програмирането чрез game-based образование. Занятията са фокусирани върху логика, креативност и решаване на проблеми с платформи, които децата обичат.",
+    "highlights": [
+      "Проектирам и водя възрастово подходящи уроци по програмиране за ученици от 2. до 4. клас.",
+      "Използвам Roblox Studio за скриптове, game design и computational thinking.",
+      "Използвам Minecraft Education Edition за block-based coding, сътрудничество и STEM дейности.",
+      "Адаптирам технически концепции в забавни практически упражнения, които ангажират децата."
+    ],
+    "technologies": [
+      "Roblox Studio",
+      "Minecraft Education Edition",
+      "Lua",
+      "Block-based Programming"
+    ]
+  }
+}

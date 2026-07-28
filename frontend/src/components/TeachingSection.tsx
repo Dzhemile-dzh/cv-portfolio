@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import type { Teaching } from '../types';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface TeachingSectionProps {
   teaching: Teaching;
 }
 
 export function TeachingSection({ teaching }: TeachingSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="teaching" className="section-padding section-band bg-white" aria-labelledby="teaching-heading">
       <div className="container-max">
@@ -16,9 +19,9 @@ export function TeachingSection({ teaching }: TeachingSectionProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.45 }}
         >
-          <SectionLabel>Teaching</SectionLabel>
+          <SectionLabel>{t.teaching.label}</SectionLabel>
           <h2 id="teaching-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
-            Teaching programming to kids
+            {t.teaching.heading}
           </h2>
           <p className="text-[#333] mb-10 max-w-2xl font-medium">
             {teaching.description}

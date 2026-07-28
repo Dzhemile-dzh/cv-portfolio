@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import type { SeoMeta } from '../types';
+import type { Locale } from '../i18n/types';
 
 interface SeoHeadProps {
   meta: SeoMeta;
+  locale?: Locale;
 }
 
 function setMetaTag(name: string, content: string, property = false): void {
@@ -30,10 +32,10 @@ function setLinkTag(rel: string, href: string): void {
   element.href = href;
 }
 
-export function SeoHead({ meta }: SeoHeadProps) {
+export function SeoHead({ meta, locale = 'en' }: SeoHeadProps) {
   useEffect(() => {
     document.title = meta.title;
-    document.documentElement.lang = 'en';
+    document.documentElement.lang = locale;
 
     setMetaTag('description', meta.description);
     setMetaTag('keywords', meta.keywords);
@@ -70,7 +72,7 @@ export function SeoHead({ meta }: SeoHeadProps) {
     } else if (script !== null) {
       script.remove();
     }
-  }, [meta]);
+  }, [meta, locale]);
 
   return null;
 }

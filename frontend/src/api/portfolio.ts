@@ -18,12 +18,24 @@ async function loadWithFallback<T>(primary: string, secondary: string): Promise<
   }
 }
 
-export function fetchPortfolio(): Promise<PortfolioData> {
-  return loadWithFallback<PortfolioData>(`${API_BASE}/api/all`, '/data/portfolio.json');
+export function fetchPortfolio(locale: 'en' | 'bg' = 'en'): Promise<PortfolioData> {
+  const staticPath = locale === 'bg' ? '/data/portfolio.bg.json' : '/data/portfolio.json';
+  if (locale === 'bg' || API_BASE === '') {
+    return fetchJson<PortfolioData>(staticPath).catch(() =>
+      fetchJson<PortfolioData>('/data/portfolio.json'),
+    );
+  }
+
+  return loadWithFallback<PortfolioData>(`${API_BASE}/api/all`, staticPath);
 }
 
-export function fetchSeoMeta(): Promise<SeoMeta> {
-  return loadWithFallback<SeoMeta>(`${API_BASE}/api/seo/meta`, '/data/seo.json');
+export function fetchSeoMeta(locale: 'en' | 'bg' = 'en'): Promise<SeoMeta> {
+  const staticPath = locale === 'bg' ? '/data/seo.bg.json' : '/data/seo.json';
+  if (locale === 'bg' || API_BASE === '') {
+    return fetchJson<SeoMeta>(staticPath).catch(() => fetchJson<SeoMeta>('/data/seo.json'));
+  }
+
+  return loadWithFallback<SeoMeta>(`${API_BASE}/api/seo/meta`, staticPath);
 }
 
 export const fallbackPortfolio: PortfolioData = {
