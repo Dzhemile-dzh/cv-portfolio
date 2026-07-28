@@ -37,9 +37,9 @@ export function Hero({ profile }: HeroProps) {
               animate={{ opacity: 1, x: 0, rotate: -1 }}
               transition={{ type: 'spring', stiffness: 120, damping: 14 }}
             >
-              <span className="bg-[#ff4d3a] text-white px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414]">
-                <span className="block">Full-Stack</span>
-                <span className="block">Web Developer</span>
+              <span className="bg-[#ff4d3a] text-white px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414] text-left">
+                <span className="block whitespace-nowrap">Full-Stack</span>
+                <span className="block whitespace-nowrap">Web Developer</span>
               </span>
             </motion.h1>
 
@@ -160,7 +160,7 @@ export function Hero({ profile }: HeroProps) {
                   rotate: { delay: 0.8, duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
                 }}
               >
-                Hi I am Dzhemile Ahmed
+                Hi, I am Dzhemile Ahmed
               </motion.p>
             </motion.div>
           </motion.div>
