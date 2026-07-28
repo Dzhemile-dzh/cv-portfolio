@@ -16,7 +16,7 @@ export function Hero({ profile }: HeroProps) {
       aria-labelledby="hero-heading"
     >
       <div
-        className="absolute top-1/2 right-4 sm:right-10 w-10 h-10 sm:w-12 sm:h-12 bg-[#ff4d3a] border-[3px] border-[#141414] rotate-45"
+        className="absolute top-1/2 right-4 sm:right-10 w-10 h-10 sm:w-12 sm:h-12 bg-[#ff4d3a] border-[3px] border-[#141414] rotate-45 hidden sm:block"
         aria-hidden="true"
       />
 
