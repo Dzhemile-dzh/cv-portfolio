@@ -18,55 +18,40 @@ export function About({ profile }: AboutProps) {
           <SectionLabel>About</SectionLabel>
           <h2 id="about-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-8 max-w-3xl leading-tight">
             Building software by day.
-            <span className="block text-[#ff4d3a] mt-2">Teaching kids to code after hours.</span>
           </h2>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              <div className="lg:hidden flex justify-center">
-                <img
-                  src={profile.photo}
-                  alt={`Portrait of ${profile.name}`}
-                  width={200}
-                  height={260}
-                  className="w-48 object-cover object-top border-[3px] border-[#141414] shadow-[6px_6px_0_#ff4d3a]"
-                  loading="lazy"
-                />
-              </div>
-              <p className="text-[#333] text-lg leading-relaxed hard-card p-6">
-                {profile.about}
-              </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-10">
+            <InfoCard title="Location" value={profile.location} color="teal" />
+            <InfoCard title="Email" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
+            <InfoCard title="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
+
+            <div className="hard-card-mustard p-5">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages</h3>
+              <ul className="space-y-2">
+                {profile.languages.map((lang) => (
+                  <li key={lang.name} className="flex justify-between text-sm font-semibold gap-2">
+                    <span>{lang.name}</span>
+                    <span className="font-mono text-[#6b2d5c]">{lang.level}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="space-y-4">
-              <InfoCard title="Location" value={profile.location} color="teal" />
-              <InfoCard title="Email" value={profile.email} href={`mailto:${profile.email}`} color="coral" />
-              <InfoCard title="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} color="sky" />
-
-              <div className="hard-card-mustard p-5">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Languages</h3>
-                <ul className="space-y-2">
-                  {profile.languages.map((lang) => (
-                    <li key={lang.name} className="flex justify-between text-sm font-semibold">
-                      <span>{lang.name}</span>
-                      <span className="font-mono text-[#6b2d5c]">{lang.level}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="hard-card-coral p-5">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Hobbies</h3>
-                <div className="flex flex-wrap gap-2">
-                  {profile.hobbies.map((hobby) => (
-                    <span key={hobby} className="tag tag-soft" style={{ background: '#ffe8e2' }}>
-                      {hobby}
-                    </span>
-                  ))}
-                </div>
+            <div className="hard-card-coral p-5">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider mb-3">Hobbies</h3>
+              <div className="flex flex-wrap gap-2">
+                {profile.hobbies.map((hobby) => (
+                  <span key={hobby} className="tag tag-soft" style={{ background: '#ffe8e2' }}>
+                    {hobby}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
+
+          <p className="text-[#333] text-lg leading-relaxed max-w-4xl">
+            {profile.about}
+          </p>
         </motion.div>
       </div>
     </section>
@@ -88,11 +73,11 @@ function InfoCard({
     color === 'teal' ? 'hard-card-teal' : color === 'coral' ? 'hard-card-coral' : 'hard-card-sky';
 
   const content = href ? (
-    <a href={href} className="font-semibold hover:underline break-all">
+    <a href={href} className="font-semibold hover:underline break-all text-sm">
       {value}
     </a>
   ) : (
-    <span className="font-semibold">{value}</span>
+    <span className="font-semibold text-sm">{value}</span>
   );
 
   return (

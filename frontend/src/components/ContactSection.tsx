@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
+import { SocialIconLinks } from './SocialIconLinks';
 import type { Profile } from '../types';
 
 interface ContactSectionProps {
@@ -38,19 +39,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
             </a>
           </div>
 
-          <div className="flex justify-center flex-wrap gap-3">
-            {profile.socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-3 bg-white text-[#141414] border-[3px] border-[#141414] font-bold text-sm shadow-[4px_4px_0_#141414] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#141414] transition-all"
-              >
-                {social.name}
-              </a>
-            ))}
-          </div>
+          <SocialIconLinks socials={profile.socials} className="justify-center" variant="dark" />
         </motion.div>
       </div>
     </section>

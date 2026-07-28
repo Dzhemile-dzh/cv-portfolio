@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { Profile } from '../types';
+import { SocialIconLinks } from './SocialIconLinks';
 
 interface HeroProps {
   profile: Profile;
@@ -96,27 +97,11 @@ export function Hero({ profile }: HeroProps) {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
             >
-              {profile.socials.map((social, i) => {
-                const colors = ['bg-[#3aa0ff] text-[#141414]', 'bg-[#141414] text-white', 'bg-[#f5c518] text-[#141414]'];
-                return (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 px-3 py-2 text-sm font-bold border-[3px] border-[#141414] ${colors[i % 3]}`}
-                    whileHover={{ y: -4, rotate: i % 2 === 0 ? -2 : 2 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  >
-                    {social.name}
-                  </motion.a>
-                );
-              })}
+              <SocialIconLinks socials={profile.socials} />
             </motion.div>
           </div>
 
