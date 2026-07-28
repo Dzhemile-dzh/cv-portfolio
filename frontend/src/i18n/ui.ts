@@ -110,7 +110,7 @@ const en: UiMessages = {
     skills: 'Skills',
     education: 'Education',
     contact: 'Contact',
-    getCv: 'Get CV',
+    getCv: 'Download CV',
     toggleMenu: 'Toggle menu',
   },
   hero: {
@@ -215,7 +215,7 @@ const bg: UiMessages = {
     skills: 'Умения',
     education: 'Образование',
     contact: 'Контакт',
-    getCv: 'Вземи CV',
+    getCv: 'Изтегли CV',
     toggleMenu: 'Меню',
   },
   hero: {
