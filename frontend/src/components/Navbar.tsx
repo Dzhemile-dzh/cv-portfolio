@@ -85,7 +85,7 @@ export function Navbar() {
         <a
           href="/DzhemileAhmedCV.pdf"
           download="DzhemileAhmedCV.pdf"
-          className="hidden md:inline-flex btn-primary text-sm !py-2 !px-4"
+          className="hidden lg:inline-flex btn-primary text-sm !py-2 !px-4"
         >
           Get CV
         </a>
@@ -127,6 +127,16 @@ export function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/DzhemileAhmedCV.pdf"
+                  download="DzhemileAhmedCV.pdf"
+                  className="block px-3 py-3 font-semibold hover:bg-[#0f9d8a] hover:text-white border-2 border-transparent hover:border-[#141414]"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Get CV
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
