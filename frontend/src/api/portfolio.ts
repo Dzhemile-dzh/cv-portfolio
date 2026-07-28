@@ -35,7 +35,7 @@ export const fallbackPortfolio: PortfolioData = {
     phone: '(+359) 895627511',
     location: 'Varna, Bulgaria',
     photo: '/profile.png',
-    about: 'Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases.',
+    about: 'Experienced full-stack software engineer with over 7 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases.',
     socials: [
       { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dzhemile-ahmed-42icdi/', icon: 'linkedin' },
       { name: 'GitHub', url: 'https://github.com/Dzhemile-dzh', icon: 'github' },

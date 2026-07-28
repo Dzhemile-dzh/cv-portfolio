@@ -19,7 +19,7 @@ final class PortfolioData
             'phone' => '(+359) 895627511',
             'location' => 'Varna, Bulgaria',
             'photo' => '/profile.png',
-            'about' => 'Experienced full-stack software engineer with over 5 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science, eager to apply technical expertise in data analysis and machine learning to solve complex problems. Also teaching programming to children in grades 2-4 through Roblox and Minecraft Education. Seeking a challenging role in a dynamic organization to contribute with my skills and grow further.',
+            'about' => 'Experienced full-stack software engineer with over 7 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science, eager to apply technical expertise in data analysis and machine learning to solve complex problems. Also teaching programming to children in grades 2-4 through Roblox and Minecraft Education. Seeking a challenging role in a dynamic organization to contribute with my skills and grow further.',
             'socials' => [
                 ['name' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/dzhemile-ahmed-42icdi/', 'icon' => 'linkedin'],
                 ['name' => 'GitHub', 'url' => 'https://github.com/Dzhemile-dzh', 'icon' => 'github'],
