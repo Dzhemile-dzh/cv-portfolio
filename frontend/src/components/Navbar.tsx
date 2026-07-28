@@ -82,13 +82,15 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="/DzhemileAhmedCV.pdf"
-          download="DzhemileAhmedCV.pdf"
-          className="hidden lg:inline-flex btn-primary text-sm !py-2 !px-4"
-        >
-          Get CV
-        </a>
+        <div className="hidden lg:block">
+          <a
+            href="/DzhemileAhmedCV.pdf"
+            download="DzhemileAhmedCV.pdf"
+            className="btn-primary text-sm !py-2 !px-4"
+          >
+            Get CV
+          </a>
+        </div>
 
         <button
           type="button"
