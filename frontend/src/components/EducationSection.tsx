@@ -74,7 +74,7 @@ export function EducationSection({ education, certifications }: EducationSection
 
 function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
   const { t } = useLanguage();
-  const accents = ['border-l-[#ff4d3a]', 'border-l-[#0f9d8a]', 'border-l-[#f5c518]', 'border-l-[#3aa0ff]'];
+  const accents = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky'];
   const accent = accents[index % accents.length];
   const hasLink = cert.url !== '';
 
@@ -93,7 +93,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
     </>
   );
 
-  const className = `hard-card bg-white p-5 flex flex-col min-h-[9.5rem] border-l-[6px] ${accent} group transition-transform hover:-translate-y-1`;
+  const className = `${accent} p-5 flex flex-col min-h-[9.5rem] group transition-transform hover:-translate-y-1`;
 
   if (hasLink) {
     return (
