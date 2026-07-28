@@ -63,18 +63,18 @@ export function Hero({ profile }: HeroProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.4 }}
             >
-              <a href="#projects" className="btn-ghost">
-                View projects
-              </a>
-              <a href={`mailto:${profile.email}`} className="btn-ghost">
-                Contact me
-              </a>
               <a
                 href="/DzhemileAhmedCV.pdf"
                 download="DzhemileAhmedCV.pdf"
                 className="btn-primary"
               >
                 Download CV
+              </a>
+              <a href="#projects" className="btn-ghost">
+                View projects
+              </a>
+              <a href={`mailto:${profile.email}`} className="btn-ghost">
+                Contact me
               </a>
             </motion.div>
 
