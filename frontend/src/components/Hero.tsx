@@ -69,12 +69,13 @@ export function Hero({ profile }: HeroProps) {
               Full-Stack Web Developer
             </h1>
             <motion.p
-              className="absolute -bottom-2.5 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414]"
+              className="absolute -bottom-3 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left w-[6.5rem] sm:w-[7.5rem]"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35 }}
             >
-              {profile.subtitle}
+              <span className="block">Data Science</span>
+              <span className="block">Enthusiast</span>
             </motion.p>
           </motion.div>
 
