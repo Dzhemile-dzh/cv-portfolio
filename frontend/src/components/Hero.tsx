@@ -72,13 +72,13 @@ export function Hero({ profile }: HeroProps) {
               {t.hero.title}
             </h1>
             <motion.p
-              className="absolute -bottom-3 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left w-[6.5rem] sm:w-[7.5rem]"
+              className="absolute -bottom-3 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] leading-tight text-left"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35 }}
             >
-              <span className="block">{profile.subtitle.split(' ')[0]} {profile.subtitle.split(' ')[1]}</span>
-              <span className="block">{profile.subtitle.split(' ').slice(2).join(' ')}</span>
+              <span className="block whitespace-nowrap">{t.hero.subtitleLine1}</span>
+              <span className="block whitespace-nowrap">{t.hero.subtitleLine2}</span>
             </motion.p>
           </motion.div>
 

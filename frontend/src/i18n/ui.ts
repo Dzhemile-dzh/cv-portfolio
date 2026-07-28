@@ -17,6 +17,8 @@ export interface UiMessages {
   hero: {
     greeting: string;
     title: string;
+    subtitleLine1: string;
+    subtitleLine2: string;
     pitchLine1: string;
     pitchLine2: string;
     downloadCv: string;
@@ -112,6 +114,8 @@ const en: UiMessages = {
   hero: {
     greeting: 'Hi, I am Dzhemile Ahmed',
     title: 'Full-Stack Web Developer',
+    subtitleLine1: 'Data Science',
+    subtitleLine2: 'Enthusiast',
     pitchLine1: 'I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.',
     pitchLine2: 'If you need someone who delivers, you are in the right place.',
     downloadCv: 'Download CV',
@@ -213,6 +217,8 @@ const bg: UiMessages = {
   hero: {
     greeting: 'Здравейте, аз съм Джемиле Ахмед',
     title: 'Full-Stack уеб разработчик',
+    subtitleLine1: 'Data Science',
+    subtitleLine2: 'ентусиаст',
     pitchLine1: 'Изграждам надеждни PHP бекенди, чисти React интерфейси и PDF системи, които издържат в продукция.',
     pitchLine2: 'Ако търсите човек, който свършва работата, сте на правилното място.',
     downloadCv: 'Изтегли CV',
