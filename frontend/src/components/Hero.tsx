@@ -27,14 +27,14 @@ export function Hero({ profile }: HeroProps) {
           <div>
             <motion.h1
               id="hero-heading"
-              className="font-display text-[clamp(1.75rem,8vw,3.75rem)] font-extrabold tracking-tight mb-6 leading-[1.05] max-w-full"
+              className="font-display text-[clamp(1.5rem,7vw,3.75rem)] font-extrabold tracking-tight mb-6 leading-[1.05]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
             >
-              <span className="bg-[#ff4d3a] text-white px-3 sm:px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414] text-left max-w-full -rotate-1">
-                <span className="block">Full-Stack</span>
-                <span className="block">Web Developer</span>
+              <span className="bg-[#ff4d3a] text-white px-3 sm:px-4 py-2 border-[3px] border-[#141414] inline-block shadow-[6px_6px_0_#141414] text-left -rotate-1">
+                <span className="block whitespace-nowrap">Full-Stack</span>
+                <span className="block whitespace-nowrap">Web Developer</span>
               </span>
             </motion.h1>
 

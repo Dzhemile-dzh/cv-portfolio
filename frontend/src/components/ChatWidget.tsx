@@ -61,13 +61,13 @@ export function ChatWidget({ data }: ChatWidgetProps) {
     <>
       <motion.button
         type="button"
-        className="fixed bottom-5 right-5 z-[60] w-14 h-14 bg-[#ff4d3a] text-white border-[3px] border-[#141414] shadow-[4px_4px_0_#141414] font-display font-extrabold text-sm"
         aria-label={open ? 'Close CV chat' : 'Open CV chat'}
         onClick={() => setOpen((value) => !value)}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.96 }}
+        className="fixed bottom-5 right-5 z-[60] min-w-14 h-14 px-2 bg-[#ff4d3a] text-white border-[3px] border-[#141414] shadow-[4px_4px_0_#141414] font-display font-extrabold text-xs tracking-wide"
       >
-        {open ? 'X' : 'AI'}
+        {open ? 'X' : 'CHAT'}
       </motion.button>
 
       <AnimatePresence>
