@@ -5,47 +5,48 @@ interface SkillsSectionProps {
   skills: Record<string, string[]>;
 }
 
-const categoryColors: Record<string, string> = {
-  'Back-End': 'from-blue-500/20 to-cyan-500/10',
-  'Front-End': 'from-violet-500/20 to-purple-500/10',
-  'Databases': 'from-emerald-500/20 to-green-500/10',
-  'Version Control': 'from-orange-500/20 to-amber-500/10',
-  'Data Science': 'from-pink-500/20 to-rose-500/10',
-  'DevOps & Tools': 'from-slate-500/20 to-gray-500/10',
+const categoryStyles: Record<string, string> = {
+  'Back-End': 'hard-card-coral',
+  'Front-End': 'hard-card-sky',
+  Databases: 'hard-card-teal',
+  'Version Control': 'hard-card-mustard',
+  'Data Science': 'hard-card',
+  'DevOps & Tools': 'hard-card-coral',
+  'Teaching & Education Tech': 'hard-card-teal',
 };
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
   return (
-    <section id="skills" className="section-padding bg-slate-900/50" aria-labelledby="skills-heading">
+    <section id="skills" className="section-padding bg-[#ffe8e2]" aria-labelledby="skills-heading">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.45 }}
         >
           <SectionLabel>Skills</SectionLabel>
-          <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold mb-12">
-            Technical <span className="gradient-text">Expertise</span>
+          <h2 id="skills-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
+            Tools I have receipts for
           </h2>
+          <p className="mb-12 max-w-xl font-medium text-[#333]">
+            Not a logo zoo. Just the stack I&apos;ve actually shipped with — and yes, PHP is still undefeated.
+          </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {Object.entries(skills).map(([category, items], index) => (
               <motion.div
                 key={category}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`glass rounded-2xl p-6 bg-gradient-to-br ${categoryColors[category] ?? 'from-indigo-500/10 to-transparent'}`}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className={`${categoryStyles[category] ?? 'hard-card'} p-5`}
               >
-                <h3 className="font-semibold text-white mb-4">{category}</h3>
+                <h3 className="font-display font-extrabold text-lg mb-4">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 rounded-lg bg-slate-800/60 text-slate-300 text-sm hover:bg-indigo-500/20 hover:text-indigo-200 transition-colors cursor-default"
-                    >
+                    <span key={skill} className="tag bg-white">
                       {skill}
                     </span>
                   ))}

@@ -9,38 +9,44 @@ interface EducationSectionProps {
 
 export function EducationSection({ education, certifications }: EducationSectionProps) {
   return (
-    <section id="education" className="section-padding" aria-labelledby="education-heading">
+    <section id="education" className="section-padding bg-[#e8f0ff]" aria-labelledby="education-heading">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.45 }}
         >
-          <SectionLabel>Education & Certifications</SectionLabel>
-          <h2 id="education-heading" className="text-3xl sm:text-4xl font-bold mb-12">
-            Learning & <span className="gradient-text">Growth</span>
+          <SectionLabel>Education</SectionLabel>
+          <h2 id="education-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-4">
+            Degrees, badges, and proof I finish courses
           </h2>
+          <p className="mb-12 max-w-xl font-medium text-[#333]">
+            Click the certificates. They&apos;re real. Unlike half the &quot;AI experts&quot; on LinkedIn.
+          </p>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-10">
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-slate-300">Education</h3>
+              <h3 className="font-display text-xl font-extrabold mb-5">School</h3>
               <div className="space-y-4">
-                {education.map((edu) => (
-                  <div key={`${edu.institution}-${edu.period}`} className="glass rounded-xl p-5">
-                    <time className="font-mono text-xs text-indigo-400">{edu.period}</time>
-                    <h4 className="font-semibold text-white mt-1">{edu.degree}</h4>
-                    <p className="text-slate-400 text-sm mt-1">{edu.institution}</p>
+                {education.map((edu, i) => (
+                  <div
+                    key={`${edu.institution}-${edu.period}`}
+                    className={`${i % 2 === 0 ? 'hard-card-sky' : 'hard-card-mustard'} p-5`}
+                  >
+                    <time className="font-mono text-xs font-bold">{edu.period}</time>
+                    <h4 className="font-bold mt-1">{edu.degree}</h4>
+                    <p className="text-sm text-[#555] mt-1">{edu.institution}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-slate-300">Certifications</h3>
+              <h3 className="font-display text-xl font-extrabold mb-5">Certifications</h3>
               <div className="grid sm:grid-cols-2 gap-3">
-                {certifications.map((cert) => (
-                  <CertificationCard key={`${cert.name}-${cert.issuer}`} cert={cert} />
+                {certifications.map((cert, i) => (
+                  <CertificationCard key={`${cert.name}-${cert.issuer}`} cert={cert} index={i} />
                 ))}
               </div>
             </div>
@@ -51,19 +57,17 @@ export function EducationSection({ education, certifications }: EducationSection
   );
 }
 
-function CertificationCard({ cert }: { cert: Certification }) {
+function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
+  const styles = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky'];
+  const className = `${styles[index % styles.length]} p-4 block group`;
+
   const content = (
     <>
-      <h4 className="text-sm font-medium text-white leading-snug group-hover:text-indigo-300 transition-colors">
-        {cert.name}
-      </h4>
-      <p className="text-xs text-slate-500 mt-1">{cert.issuer}</p>
+      <h4 className="text-sm font-bold leading-snug group-hover:underline">{cert.name}</h4>
+      <p className="text-xs text-[#555] mt-1">{cert.issuer}</p>
       {cert.url !== '' && (
-        <span className="inline-flex items-center gap-1 text-xs text-indigo-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          View certificate
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+        <span className="inline-block text-xs font-bold mt-2 text-[#ff4d3a]">
+          verify me →
         </span>
       )}
     </>
@@ -71,16 +75,11 @@ function CertificationCard({ cert }: { cert: Certification }) {
 
   if (cert.url !== '') {
     return (
-      <a
-        href={cert.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="glass rounded-xl p-4 group hover:border-indigo-500/30 transition-all block"
-      >
+      <a href={cert.url} target="_blank" rel="noopener noreferrer" className={className}>
         {content}
       </a>
     );
   }
 
-  return <div className="glass rounded-xl p-4">{content}</div>;
+  return <div className={className}>{content}</div>;
 }

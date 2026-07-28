@@ -4,12 +4,12 @@ import App from './App';
 import './index.css';
 
 console.log(
-  '%c👀 Nice. You found the console too.',
-  'color: #818cf8; font-size: 14px; font-weight: bold;',
+  '%cYou opened the console. Bold move.',
+  'color: #ff4d3a; font-size: 14px; font-weight: bold; background: #141414; padding: 4px 8px;',
 );
 console.log(
-  '%cThis portfolio has 0 console errors, 0 GitHub links to private client work, and 1 developer who reads DevTools. Hire accordingly.',
-  'color: #94a3b8; font-size: 12px;',
+  '%cThis site has personality, PHP, and exactly zero indigo glassmorphism. Hire the human, not the template.',
+  'color: #0f9d8a; font-size: 12px;',
 );
 
 createRoot(document.getElementById('root')!).render(
