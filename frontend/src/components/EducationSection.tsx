@@ -60,7 +60,7 @@ export function EducationSection({ education, certifications }: EducationSection
               {t.education.certifications}
             </h3>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
               {certifications.map((cert, i) => (
                 <CertificationCard key={`${cert.name}-${cert.issuer}`} cert={cert} index={i} />
               ))}
@@ -80,12 +80,12 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
 
   const body = (
     <>
-      <p className="font-mono text-[11px] font-bold uppercase tracking-wide text-[#666] mb-2">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-wide text-[#666] mb-1">
         {cert.issuer}
       </p>
-      <h4 className="font-bold text-sm leading-snug flex-1">{cert.name}</h4>
+      <h4 className="font-bold text-xs sm:text-sm leading-snug flex-1">{cert.name}</h4>
       {hasLink && (
-        <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[#ff4d3a] group-hover:underline">
+        <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#ff4d3a] group-hover:underline">
           {t.education.verify}
           <span aria-hidden="true">↗</span>
         </span>
@@ -93,7 +93,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
     </>
   );
 
-  const className = `${accent} p-5 flex flex-col min-h-[9.5rem] group transition-transform hover:-translate-y-1`;
+  const className = `${accent} p-3 flex flex-col min-h-0 group transition-transform hover:-translate-y-0.5`;
 
   if (hasLink) {
     return (
