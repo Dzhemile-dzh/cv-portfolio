@@ -74,13 +74,20 @@ export function EducationSection({ education, certifications }: EducationSection
 
 function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
   const { t } = useLanguage();
-  const accents = ['hard-card-coral', 'hard-card-teal', 'hard-card-mustard', 'hard-card-sky'];
+  const accents = [
+    { card: 'hard-card-coral', issuer: 'bg-[#ff4d3a] text-white' },
+    { card: 'hard-card-teal', issuer: 'bg-[#0f9d8a] text-white' },
+    { card: 'hard-card-mustard', issuer: 'bg-[#f5c518] text-[#141414]' },
+    { card: 'hard-card-sky', issuer: 'bg-[#3aa0ff] text-[#141414]' },
+  ];
   const accent = accents[index % accents.length];
   const hasLink = cert.url !== '';
 
   const body = (
     <>
-      <p className="font-mono text-[10px] font-bold uppercase tracking-wide text-[#666] mb-1">
+      <p
+        className={`inline-block self-start font-mono text-[10px] font-extrabold uppercase tracking-wide border-2 border-[#141414] px-2 py-0.5 mb-2 ${accent.issuer}`}
+      >
         {cert.issuer}
       </p>
       <h4 className="font-bold text-xs sm:text-sm leading-snug flex-1">{cert.name}</h4>
@@ -93,7 +100,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
     </>
   );
 
-  const className = `${accent} p-3 flex flex-col min-h-0 group transition-transform hover:-translate-y-0.5`;
+  const className = `${accent.card} p-3 flex flex-col min-h-0 group transition-transform hover:-translate-y-0.5`;
 
   if (hasLink) {
     return (
