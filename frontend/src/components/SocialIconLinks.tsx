@@ -24,10 +24,10 @@ interface SocialIconLinksProps {
 }
 
 export function SocialIconLinks({ socials, className = '', variant = 'light' }: SocialIconLinksProps) {
-  const colors =
+  const buttonClass =
     variant === 'dark'
-      ? ['bg-white text-[#141414]', 'bg-[#141414] text-white border-white', 'bg-[#141414]']
-      : ['bg-[#3aa0ff] text-[#141414]', 'bg-[#141414] text-white', 'bg-[#141414]'];
+      ? 'bg-[#141414] text-white border-white'
+      : 'bg-[#141414] text-white';
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
@@ -42,7 +42,7 @@ export function SocialIconLinks({ socials, className = '', variant = 'light' }: 
             rel="noopener noreferrer"
             aria-label={social.name}
             title={social.name}
-            className={`inline-flex items-center justify-center w-12 h-12 border-[3px] border-[#141414] overflow-hidden ${colors[i % 3]}`}
+            className={`inline-flex items-center justify-center w-12 h-12 border-[3px] border-[#141414] overflow-hidden ${buttonClass}`}
             whileHover={{ y: -4, rotate: i % 2 === 0 ? -3 : 3 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
