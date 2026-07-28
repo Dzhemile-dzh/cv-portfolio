@@ -83,13 +83,13 @@ export function Hero({ profile }: HeroProps) {
           </motion.div>
 
           <motion.p
-            className="text-[#333] text-[clamp(0.72rem,2.4vw,0.95rem)] leading-snug mb-6 max-w-4xl w-full px-1"
+            className="text-[#333] text-sm sm:text-[0.95rem] leading-snug mb-6 max-w-4xl w-full px-1"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.4 }}
           >
-            <span className="block whitespace-nowrap">{t.hero.pitchLine1}</span>
-            <span className="block whitespace-nowrap">{t.hero.pitchLine2}</span>
+            <span className="block md:whitespace-nowrap">{t.hero.pitchLine1}</span>
+            <span className="block md:whitespace-nowrap">{t.hero.pitchLine2}</span>
           </motion.p>
 
           <motion.div
