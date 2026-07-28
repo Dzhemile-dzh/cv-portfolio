@@ -1,50 +1,36 @@
-# Dzhemile Ahmed — CV Portfolio Website
+# Dzhemile Ahmed - CV Portfolio
 
-Modern, SEO-optimized portfolio website built with **React 19** and **PHP 8.5**.
+Colorful personal portfolio built with **React 19** and **PHP 8.5**.
 
-## Features
+Live source: [github.com/Dzhemile-dzh/cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio)
 
-- **Modern UI/UX** — Dark theme, glassmorphism, Framer Motion animations, responsive design
-- **SEO Optimized** — Meta tags, Open Graph, Twitter Cards, JSON-LD structured data, sitemap.xml, robots.txt
-- **Project Showcase** — Detailed descriptions, technology tags, and external links
-- **REST API** — PHP 8.5 backend serving portfolio data
-- **Performance** — Code splitting, lazy loading, optimized build output
+## Stack
 
-## Tech Stack
-
-| Layer    | Technology                          |
-|----------|-------------------------------------|
+| Layer    | Tools |
+|----------|--------|
 | Frontend | React 19, TypeScript, Vite, Tailwind CSS 4, Framer Motion |
-| Backend  | PHP 8.5, PSR-4 autoloading          |
-| SEO      | react-helmet-async, JSON-LD, sitemap |
+| Backend  | PHP 8.5, Composer (PSR-4), JSON API |
+| SEO      | Open Graph, Twitter Cards, JSON-LD, sitemap, robots.txt |
 
-## Quick Start
+## Local development
 
-### Prerequisites
-
-- PHP 8.4+ (8.5 recommended)
-- Composer
-- Node.js 20+
-
-### 1. Backend Setup
+**Requirements:** PHP 8.4+, Composer, Node.js 20+
 
 ```bash
+# API
 cd backend
 composer install
 php -S localhost:8080 -t public
-```
 
-### 2. Frontend Development
-
-```bash
+# UI (new terminal)
 cd frontend
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) — API requests are proxied to the PHP backend.
+Open [http://localhost:5173](http://localhost:5173). Vite proxies `/api` to the PHP server.
 
-### 3. Production Build
+## Production
 
 ```bash
 cd frontend
@@ -54,39 +40,33 @@ cd ../backend
 php -S localhost:8080 -t public
 ```
 
-The PHP server serves the built React app from `frontend/dist` and handles API routes.
+Or deploy with Apache/Nginx:
 
-## API Endpoints
+1. Set document root to `backend/public`
+2. Route non-file requests to `index.php` (`.htaccess` is included for Apache)
+3. Update `site_url` in `backend/config/app.php`
 
-| Method | Endpoint              | Description              |
-|--------|-----------------------|--------------------------|
-| GET    | `/api/all`            | Full portfolio data      |
-| GET    | `/api/profile`        | Profile information      |
-| GET    | `/api/experience`     | Work experience          |
-| GET    | `/api/projects`       | All projects             |
-| GET    | `/api/projects/{id}`  | Single project           |
-| GET    | `/api/skills`         | Skills by category       |
-| GET    | `/api/education`      | Education history        |
-| GET    | `/api/certifications` | Certifications           |
-| GET    | `/api/seo/meta`       | SEO metadata + JSON-LD   |
-| GET    | `/sitemap.xml`        | XML sitemap              |
-| GET    | `/robots.txt`         | Robots file              |
+## Config
 
-## Configuration
+`backend/config/app.php` holds site URL, social links, meta description, and SEO keywords.
 
-Edit `backend/config/app.php` to update site URL, meta description, and keywords for production deployment.
+## API
 
-## Deployment
-
-1. Build the frontend: `cd frontend && npm run build`
-2. Point your web server document root to `backend/public`
-3. Ensure URL rewriting routes all non-file requests through `index.php`
-4. Update `site_url` in `backend/config/app.php`
-
-### Apache (.htaccess included)
-
-The project includes an Apache configuration in `backend/public/.htaccess`.
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/all` | Full portfolio payload |
+| GET | `/api/profile` | Profile |
+| GET | `/api/experience` | Work history |
+| GET | `/api/projects` | Projects |
+| GET | `/api/projects/{id}` | Single project |
+| GET | `/api/skills` | Skills |
+| GET | `/api/education` | Education |
+| GET | `/api/certifications` | Certifications |
+| GET | `/api/teaching` | Teaching |
+| GET | `/api/seo/meta` | SEO meta + JSON-LD |
+| GET | `/sitemap.xml` | Sitemap |
+| GET | `/robots.txt` | Robots |
 
 ## License
 
-Private portfolio — © Dzhemile Ahmed
+© Dzhemile Ahmed
