@@ -1,0 +1,21 @@
+# Dependencies
+frontend/node_modules/
+backend/vendor/
+
+# Build output (rebuild with npm run build)
+frontend/dist/
+
+# Temp / extracted assets
+frontend/public/extracted/
+
+# Environment / local
+.env
+.env.local
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
