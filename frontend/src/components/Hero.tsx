@@ -71,7 +71,7 @@ export function Hero({ profile }: HeroProps) {
             >
               <motion.a
                 href="#projects"
-                className="btn-primary"
+                className="btn-ghost"
                 whileHover={{ y: -3, x: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -79,7 +79,7 @@ export function Hero({ profile }: HeroProps) {
               </motion.a>
               <motion.a
                 href={`mailto:${profile.email}`}
-                className="btn-secondary"
+                className="btn-ghost"
                 whileHover={{ y: -3, x: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -88,9 +88,13 @@ export function Hero({ profile }: HeroProps) {
               <motion.a
                 href="/DzhemileAhmedCV.pdf"
                 download="DzhemileAhmedCV.pdf"
-                className="btn-ghost"
-                whileHover={{ y: -3, x: -2 }}
+                className="btn-primary"
+                whileHover={{ y: -4, x: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
+                animate={{ y: [0, -3, 0] }}
+                transition={{
+                  y: { duration: 2.4, repeat: Infinity, ease: 'easeInOut' },
+                }}
               >
                 Download CV
               </motion.a>

@@ -20,7 +20,7 @@ export function About({ profile }: AboutProps) {
           <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-8 lg:gap-10 items-start">
             <div>
               <h2 id="about-heading" className="font-display text-3xl sm:text-5xl font-extrabold mb-6 max-w-3xl leading-tight">
-                Building software by day.
+                Turning complex systems into clean, working software.
               </h2>
               <p className="text-[#333] text-lg leading-relaxed">
                 {profile.about}
