@@ -9,24 +9,24 @@ interface HeroProps {
 export function Hero({ profile }: HeroProps) {
   return (
     <section
-      className="relative min-h-screen flex items-center section-padding overflow-x-hidden pt-24"
+      className="relative min-h-[100svh] flex items-center overflow-x-hidden px-4 sm:px-6 lg:px-8 pt-20 pb-8"
       aria-labelledby="hero-heading"
     >
       <div
-        className="absolute top-1/2 right-4 sm:right-10 w-12 h-12 sm:w-14 sm:h-14 bg-[#ff4d3a] border-[3px] border-[#141414] rotate-45"
+        className="absolute top-1/2 right-4 sm:right-10 w-10 h-10 sm:w-12 sm:h-12 bg-[#ff4d3a] border-[3px] border-[#141414] rotate-45"
         aria-hidden="true"
       />
 
       <div className="container-max relative w-full">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <motion.div
-            className="relative mb-10 sm:mb-12"
+            className="relative mb-6 sm:mb-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
             <div
-              className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full bg-[#0f9d8a]"
+              className="absolute -bottom-2.5 -right-2.5 sm:-bottom-3 sm:-right-3 w-full h-full bg-[#0f9d8a]"
               aria-hidden="true"
             />
             <img
@@ -34,12 +34,12 @@ export function Hero({ profile }: HeroProps) {
               alt={`Portrait of ${profile.name}`}
               width={360}
               height={460}
-              className="relative w-48 sm:w-56 md:w-64 object-cover object-top border-[3px] border-[#141414] bg-white"
+              className="relative w-36 sm:w-44 md:w-48 object-cover object-top border-[3px] border-[#141414] bg-white"
               loading="eager"
               fetchPriority="high"
             />
             <motion.p
-              className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-2 font-display text-[0.65rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[4px_4px_0_#141414] whitespace-nowrap leading-snug"
+              className="absolute left-1/2 -translate-x-1/2 bottom-3 sm:bottom-4 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1.5 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414] whitespace-nowrap leading-snug"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{
                 opacity: 1,
@@ -57,19 +57,19 @@ export function Hero({ profile }: HeroProps) {
           </motion.div>
 
           <motion.div
-            className="relative mb-8 w-full"
+            className="relative mb-6 w-full max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.45 }}
           >
             <h1
               id="hero-heading"
-              className="font-display text-[clamp(1.65rem,6.5vw,3.5rem)] font-extrabold tracking-tight leading-[1.1] bg-white text-[#141414] border-[3px] border-[#141414] shadow-[6px_6px_0_#141414] px-4 sm:px-8 py-5 sm:py-6"
+              className="font-display text-[clamp(1.35rem,4.5vw,2.5rem)] font-extrabold tracking-tight leading-none bg-white text-[#141414] border-[3px] border-[#141414] shadow-[5px_5px_0_#141414] px-4 sm:px-6 py-3 sm:py-3.5"
             >
               Full-Stack Web Developer
             </h1>
             <motion.p
-              className="absolute -bottom-3 right-2 sm:right-6 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-1.5 font-display text-[0.65rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414]"
+              className="absolute -bottom-2.5 right-2 sm:right-5 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-2.5 py-1 font-display text-[0.6rem] sm:text-xs font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#141414]"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35 }}
@@ -79,17 +79,21 @@ export function Hero({ profile }: HeroProps) {
           </motion.div>
 
           <motion.p
-            className="text-[#333] text-base sm:text-lg leading-relaxed mb-8 max-w-xl"
+            className="text-[#333] text-sm sm:text-base leading-snug mb-6 max-w-2xl"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.4 }}
           >
-            I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.
-            If you need someone who delivers, you are in the right place.
+            <span className="block">
+              I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.
+            </span>
+            <span className="block">
+              If you need someone who delivers, you are in the right place.
+            </span>
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-10 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-2.5 sm:gap-3 mb-6 w-full sm:w-auto"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.4 }}
@@ -97,14 +101,17 @@ export function Hero({ profile }: HeroProps) {
             <a
               href="/DzhemileAhmedCV.pdf"
               download="DzhemileAhmedCV.pdf"
-              className="btn-primary"
+              className="btn-primary !py-2.5 !px-4 text-sm"
             >
               Download CV
             </a>
-            <a href="#projects" className="btn-ghost !shadow-[4px_4px_0_#141414] hover:!shadow-[6px_6px_0_#141414]">
+            <a
+              href="#projects"
+              className="btn-ghost !py-2.5 !px-4 text-sm !shadow-[4px_4px_0_#141414] hover:!shadow-[6px_6px_0_#141414]"
+            >
               View projects
             </a>
-            <a href={`mailto:${profile.email}`} className="btn-ghost">
+            <a href={`mailto:${profile.email}`} className="btn-ghost !py-2.5 !px-4 text-sm">
               Contact me
             </a>
           </motion.div>
