@@ -1,4 +1,4 @@
-# Dzhemile Ahmed — CV Portfolio
+# Dzhemile Ahmed - CV Portfolio
 
 Personal portfolio for Dzhemile Ahmed.
 
@@ -30,15 +30,15 @@ Live: [cv-portfolio-ten-beryl.vercel.app](https://cv-portfolio-ten-beryl.vercel.
 ## Best practices used
 
 ### Backend (PHP)
-- **Dependency injection** — `AppFactory` composition root wires router, controllers, repository, and config
-- **OOP / SOLID** — controllers depend on `PortfolioRepositoryInterface`, not concrete data classes
-- **Repository pattern** — `InMemoryPortfolioRepository` implements the contract; easy to swap later
-- **PSR-4 autoloading** — `App\` namespace via Composer
-- **Strict types** — `declare(strict_types=1)` across PHP entrypoints
-- **Final classes** — controllers, router, HTTP helpers sealed against accidental extension
-- **Constructor property promotion** — PHP 8.4+ constructor injection
-- **Single responsibility** — routing, API responses (`JsonResponse`), SEO, and data access are separated
-- **No service locator in controllers** — dependencies are explicit constructor args
+- **Dependency injection** - `AppFactory` composition root wires router, controllers, repository, and config
+- **OOP / SOLID** - controllers depend on `PortfolioRepositoryInterface`, not concrete data classes
+- **Repository pattern** - `InMemoryPortfolioRepository` implements the contract; easy to swap later
+- **PSR-4 autoloading** - `App\` namespace via Composer
+- **Strict types** - `declare(strict_types=1)` across PHP entrypoints
+- **Final classes** - controllers, router, HTTP helpers sealed against accidental extension
+- **Constructor property promotion** - PHP 8.4+ constructor injection
+- **Single responsibility** - routing, API responses (`JsonResponse`), SEO, and data access are separated
+- **No service locator in controllers** - dependencies are explicit constructor args
 
 ### Frontend (React / TypeScript)
 - Typed domain models in `src/types`
