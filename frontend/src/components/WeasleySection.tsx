@@ -121,8 +121,16 @@ export function WeasleySection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="bg-[#0d0d0d] border-[3px] border-white shadow-[6px_6px_0_#ff4d3a] flex flex-col overflow-hidden"
+              className="relative bg-[#0d0d0d] border-[3px] border-[#ff4d3a] shadow-[6px_6px_0_#141414] flex flex-col overflow-hidden"
             >
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage:
+                    'repeating-linear-gradient(to bottom, rgba(245,245,245,0.35) 0, rgba(245,245,245,0.35) 1px, transparent 1px, transparent 5px)',
+                }}
+              />
               <div className="flex items-center gap-2 px-4 py-3 border-b-[3px] border-white/20 bg-[#141414]">
                 <span className="w-3 h-3 bg-[#ff4d3a] border border-white/40" aria-hidden="true" />
                 <span className="w-3 h-3 bg-[#f5c518] border border-white/40" aria-hidden="true" />

@@ -120,7 +120,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {hasLongDescription && (
         <button
           type="button"
-          className="btn-ghost !w-auto !px-4 !py-2 text-sm font-extrabold self-start mb-3"
+          className="btn-secondary !w-auto !px-4 !py-2 text-sm font-extrabold self-start mb-3"
           onClick={() => setExpanded((v) => !v)}
         >
           {expanded ? t.projects.seeLess : t.projects.seeMore}
