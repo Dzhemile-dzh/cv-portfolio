@@ -341,6 +341,12 @@ export function answerFromCv(question: string, data: PortfolioData, locale: Loca
       : `Outside work she likes ${data.profile.hobbies.join(' and ')}.`;
   }
 
+  if (includesAny(q, ['weasley', 'cat', 'kitten', 'pet', 'коте', 'котка', 'уизли', 'weasli'])) {
+    return bg
+      ? `Да - има оранжево коте на име Weasley. Той е неофициалният QA / debug консултант в домашния офис и често сяда върху лаптопа точно когато има грешки.`
+      : `Yes - she has an orange tabby named Weasley. He is the unofficial QA / debug consultant at home office and usually sits on the laptop right when errors show up.`;
+  }
+
   if (
     includesAny(q, [
       'who is',

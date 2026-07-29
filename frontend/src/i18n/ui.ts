@@ -69,6 +69,21 @@ export interface UiMessages {
     heading: string;
     intro: string;
   };
+  weasley: {
+    label: string;
+    heading: string;
+    intro: string;
+    badge: string;
+    alt: string;
+    terminalTitle: string;
+    line1: string;
+    line2: string;
+    line3: string;
+    line4: string;
+    line5: string;
+    line6: string;
+    punchline: string;
+  };
   footer: {
     builtWith: string;
   };
@@ -167,6 +182,21 @@ const en: UiMessages = {
     label: 'Contact',
     heading: "Let's talk",
     intro: 'Open to full-stack and backend roles, as well as data science projects. Feel free to reach out with a clear brief or opportunity.',
+  },
+  weasley: {
+    label: 'Ice breaker',
+    heading: 'Meet Weasley',
+    intro: 'Official QA lead, keyboard warmer, and senior debugging consultant. If production is on fire, he is usually already sitting on the laptop.',
+    badge: 'Weasley · Debug Dept.',
+    alt: 'Weasley the orange tabby cat upside down on a laptop during a debug session',
+    terminalTitle: 'debug://weasley.session',
+    line1: 'npm run build',
+    line2: 'Found 1 blocking issue',
+    line3: '> Cause: orange tabby occupying IDE viewport',
+    line4: '> Status: build paused for mandatory chin scratches',
+    line5: '> Assigned to: Weasley (bowtie optional, attitude required)',
+    line6: 'Hint: petting reduces stack traces by ~40%',
+    punchline: 'Result: still shipping. Just with better company.',
   },
   footer: {
     builtWith: 'Built with React and PHP 8.5',
@@ -272,6 +302,21 @@ const bg: UiMessages = {
     label: 'Контакт',
     heading: 'Да поговорим',
     intro: 'Отворена съм за full-stack и backend роли, както и за data science проекти. Пишете с ясно предложение или възможност.',
+  },
+  weasley: {
+    label: 'За разведряване',
+    heading: 'Запознайте се с Weasley',
+    intro: 'Официален QA лидер, затоплител на клавиатурата и главен консултант по дебъгване. Ако продукцията гори, той вече седи върху лаптопа.',
+    badge: 'Weasley · Debug отдел',
+    alt: 'Weasley - рижаво коте, обърнато с главата надолу върху лаптоп по време на дебъгване',
+    terminalTitle: 'debug://weasley.session',
+    line1: 'npm run build',
+    line2: 'Намерена е 1 блокираща грешка',
+    line3: '> Причина: оранжево коте заема IDE екрана',
+    line4: '> Статус: билдът е спрян за задължително почесване',
+    line5: '> Назначен: Weasley (папионката е по желание, характерът - задължителен)',
+    line6: 'Съвет: почесването намалява stack traces с ~40%',
+    punchline: 'Резултат: пак шипваме. Просто с по-добра компания.',
   },
   footer: {
     builtWith: 'Направено с React и PHP 8.5',

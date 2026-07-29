@@ -12,6 +12,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { EducationSection } from './components/EducationSection';
 import { TeachingSection } from './components/TeachingSection';
 import { ContactSection, Footer } from './components/ContactSection';
+import { WeasleySection } from './components/WeasleySection';
 import { NotFoundPage } from './components/NotFoundPage';
 import { ChatWidget } from './components/ChatWidget';
 
@@ -85,6 +86,7 @@ function HomePage() {
         {(data.education.length > 0 || data.certifications.length > 0) && (
           <EducationSection education={data.education} certifications={data.certifications} />
         )}
+        <WeasleySection />
         <ContactSection profile={data.profile} />
       </main>
       <Footer name={data.profile.name} />
