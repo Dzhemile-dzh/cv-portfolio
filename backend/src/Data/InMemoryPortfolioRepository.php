@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Data;
 
-final class PortfolioData
+use App\Contracts\PortfolioRepositoryInterface;
+
+final class InMemoryPortfolioRepository implements PortfolioRepositoryInterface
 {
     /**
      * @return array<string, mixed>
      */
-    public static function profile(): array
+    public function profile(): array
     {
         return [
             'name' => 'Dzhemile Ahmed',
@@ -37,7 +39,7 @@ final class PortfolioData
     /**
      * @return list<array<string, mixed>>
      */
-    public static function experience(): array
+    public function experience(): array
     {
         return [
             [
@@ -119,7 +121,7 @@ final class PortfolioData
     /**
      * @return list<array<string, mixed>>
      */
-    public static function projects(): array
+    public function projects(): array
     {
         return [
             [
@@ -202,7 +204,7 @@ final class PortfolioData
     /**
      * @return array<string, mixed>
      */
-    public static function teaching(): array
+    public function teaching(): array
     {
         return [
             'role' => 'Programming Instructor',
@@ -221,7 +223,7 @@ final class PortfolioData
     /**
      * @return array<string, list<string>>
      */
-    public static function skills(): array
+    public function skills(): array
     {
         return [
             'Back-End' => [
@@ -251,7 +253,7 @@ final class PortfolioData
     /**
      * @return list<array<string, string>>
      */
-    public static function education(): array
+    public function education(): array
     {
         return [
             [
@@ -275,7 +277,7 @@ final class PortfolioData
     /**
      * @return list<array<string, string>>
      */
-    public static function certifications(): array
+    public function certifications(): array
     {
         return [
             [
@@ -323,6 +325,36 @@ final class PortfolioData
                 'issuer' => 'Oracle',
                 'url' => '',
             ],
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function findProject(string $id): ?array
+    {
+        foreach ($this->projects() as $project) {
+            if ($project['id'] === $id) {
+                return $project;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function all(): array
+    {
+        return [
+            'profile' => $this->profile(),
+            'experience' => $this->experience(),
+            'projects' => $this->projects(),
+            'skills' => $this->skills(),
+            'education' => $this->education(),
+            'certifications' => $this->certifications(),
+            'teaching' => $this->teaching(),
         ];
     }
 }

@@ -4,80 +4,65 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Data\PortfolioData;
+use App\Contracts\PortfolioRepositoryInterface;
+use App\Http\JsonResponse;
 
 final class ApiController
 {
+    public function __construct(
+        private readonly PortfolioRepositoryInterface $portfolio,
+    ) {
+    }
+
     public function profile(): void
     {
-        $this->json(PortfolioData::profile());
+        JsonResponse::send($this->portfolio->profile());
     }
 
     public function experience(): void
     {
-        $this->json(PortfolioData::experience());
+        JsonResponse::send($this->portfolio->experience());
     }
 
     public function projects(): void
     {
-        $this->json(PortfolioData::projects());
+        JsonResponse::send($this->portfolio->projects());
     }
 
     public function project(string $id): void
     {
-        $projects = PortfolioData::projects();
-        foreach ($projects as $project) {
-            if ($project['id'] === $id) {
-                $this->json($project);
-                return;
-            }
+        $project = $this->portfolio->findProject($id);
+
+        if ($project === null) {
+            JsonResponse::send(['error' => 'Project not found'], 404);
+            return;
         }
 
-        http_response_code(404);
-        $this->json(['error' => 'Project not found']);
+        JsonResponse::send($project);
     }
 
     public function skills(): void
     {
-        $this->json(PortfolioData::skills());
+        JsonResponse::send($this->portfolio->skills());
     }
 
     public function education(): void
     {
-        $this->json(PortfolioData::education());
+        JsonResponse::send($this->portfolio->education());
     }
 
     public function certifications(): void
     {
-        $this->json(PortfolioData::certifications());
+        JsonResponse::send($this->portfolio->certifications());
     }
 
     public function teaching(): void
     {
-        $this->json(PortfolioData::teaching());
+        JsonResponse::send($this->portfolio->teaching());
     }
 
     public function all(): void
     {
-        $this->json([
-            'profile' => PortfolioData::profile(),
-            'experience' => PortfolioData::experience(),
-            'projects' => PortfolioData::projects(),
-            'skills' => PortfolioData::skills(),
-            'education' => PortfolioData::education(),
-            'certifications' => PortfolioData::certifications(),
-            'teaching' => PortfolioData::teaching(),
-        ]);
-    }
-
-    /**
-     * @param array<string, mixed>|list<mixed> $data
-     */
-    private function json(array $data): void
-    {
-        header('Content-Type: application/json; charset=utf-8');
-        header('Access-Control-Allow-Origin: *');
-        header('Cache-Control: public, max-age=300');
-        echo json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        JsonResponse::send($this->portfolio->all());
     }
 }

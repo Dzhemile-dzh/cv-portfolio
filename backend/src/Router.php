@@ -10,8 +10,8 @@ use App\Controllers\SeoController;
 final class Router
 {
     public function __construct(
-        private readonly ApiController $api = new ApiController(),
-        private readonly SeoController $seo = new SeoController(),
+        private readonly ApiController $api,
+        private readonly SeoController $seo,
     ) {
     }
 

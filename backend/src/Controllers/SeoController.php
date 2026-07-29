@@ -4,32 +4,29 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Data\PortfolioData;
+use App\Contracts\PortfolioRepositoryInterface;
+use App\Http\JsonResponse;
 
 final class SeoController
 {
     /**
-     * @return array<string, mixed>
+     * @param array<string, mixed> $config
      */
-    private function config(): array
-    {
-        /** @var array<string, mixed> $config */
-        $config = require dirname(__DIR__, 2) . '/config/app.php';
-        return $config;
+    public function __construct(
+        private readonly PortfolioRepositoryInterface $portfolio,
+        private readonly array $config,
+    ) {
     }
 
     public function metaJson(): void
     {
-        header('Content-Type: application/json; charset=utf-8');
-        header('Access-Control-Allow-Origin: *');
-        echo json_encode($this->buildMeta(), JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        JsonResponse::send($this->buildMeta());
     }
 
     public function sitemap(): void
     {
-        $config = $this->config();
-        $baseUrl = rtrim((string) $config['site_url'], '/');
-        $projects = PortfolioData::projects();
+        $baseUrl = rtrim((string) $this->config['site_url'], '/');
+        $projects = $this->portfolio->projects();
 
         $urls = [
             ['loc' => $baseUrl . '/', 'priority' => '1.0', 'changefreq' => 'weekly'],
@@ -65,8 +62,7 @@ final class SeoController
 
     public function robots(): void
     {
-        $config = $this->config();
-        $baseUrl = rtrim((string) $config['site_url'], '/');
+        $baseUrl = rtrim((string) $this->config['site_url'], '/');
 
         header('Content-Type: text/plain; charset=utf-8');
         echo "User-agent: *\n";
@@ -79,28 +75,27 @@ final class SeoController
      */
     public function buildMeta(): array
     {
-        $config = $this->config();
-        $profile = PortfolioData::profile();
+        $profile = $this->portfolio->profile();
 
         return [
-            'title' => $config['name'] . ' | ' . $config['title'],
-            'description' => $config['description'],
-            'keywords' => implode(', ', $config['keywords']),
-            'author' => $config['name'],
-            'canonical' => $config['site_url'],
-            'image' => $config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
+            'title' => $this->config['name'] . ' | ' . $this->config['title'],
+            'description' => $this->config['description'],
+            'keywords' => implode(', ', $this->config['keywords']),
+            'author' => $this->config['name'],
+            'canonical' => $this->config['site_url'],
+            'image' => $this->config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
             'og' => [
                 'type' => 'website',
-                'title' => $config['name'] . ' - Full-Stack Web Developer',
-                'description' => $config['description'],
-                'url' => $config['site_url'],
-                'site_name' => $config['name'] . ' Portfolio',
-                'image' => $config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
+                'title' => $this->config['name'] . ' - Full-Stack Web Developer',
+                'description' => $this->config['description'],
+                'url' => $this->config['site_url'],
+                'site_name' => $this->config['name'] . ' Portfolio',
+                'image' => $this->config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
             ],
             'twitter' => [
                 'card' => 'summary_large_image',
-                'title' => $config['name'] . ' - Full-Stack Web Developer',
-                'description' => $config['description'],
+                'title' => $this->config['name'] . ' - Full-Stack Web Developer',
+                'description' => $this->config['description'],
             ],
             'jsonLd' => [
                 '@context' => 'https://schema.org',
@@ -115,8 +110,8 @@ final class SeoController
                     'addressLocality' => 'Varna',
                     'addressCountry' => 'BG',
                 ],
-                'url' => $config['site_url'],
-                'image' => $config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
+                'url' => $this->config['site_url'],
+                'image' => $this->config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
                 'sameAs' => array_column($profile['socials'], 'url'),
                 'knowsAbout' => ['PHP', 'React', 'JavaScript', 'Drupal', 'Data Science', 'MySQL', 'Roblox', 'Minecraft Education'],
             ],

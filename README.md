@@ -1,89 +1,55 @@
-# Dzhemile Ahmed - CV Portfolio
+# Dzhemile Ahmed — CV Portfolio
 
-Colorful personal portfolio built with **React 19** and **PHP 8.5**.
+Personal portfolio for Dzhemile Ahmed.
 
-Live source: [github.com/Dzhemile-dzh/cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio)
+Live: [cv-portfolio-ten-beryl.vercel.app](https://cv-portfolio-ten-beryl.vercel.app/) · Source: [github.com/Dzhemile-dzh/cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio)
 
 ## Stack
 
-| Layer    | Tools |
-|----------|--------|
+| Layer | Tools |
+|-------|--------|
 | Frontend | React 19, TypeScript, Vite, Tailwind CSS 4, Framer Motion |
-| Backend  | PHP 8.5, Composer (PSR-4), JSON API |
-| SEO      | Open Graph, Twitter Cards, JSON-LD, sitemap, robots.txt |
+| Backend | PHP 8.4+, Composer (PSR-4), JSON REST API |
+| Deploy | Vercel (static frontend + optional serverless chat) |
+| SEO | Open Graph, Twitter Cards, JSON-LD, sitemap, robots.txt |
 
-## Local development
+## Specifics
 
-**Requirements:** PHP 8.4+, Composer, Node.js 20+
+### Multilingual (EN / BG)
+- Language switcher in the navbar (`EN` / `BG`)
+- UI chrome and portfolio content both localize
+- Locale persisted in `localStorage`; English is default
+- Static payloads: `portfolio.json` / `portfolio.bg.json`, `seo.json` / `seo.bg.json`
 
-```bash
-# API
-cd backend
-composer install
-php -S localhost:8080 -t public
+### CV Chatbot
+- Floating chat widget trained on real CV data
+- Local rule-based engine works with no API key (EN + BG intents)
+- Optional OpenAI via `api/chat.js` when `OPENAI_API_KEY` is set on Vercel
+- Answers follow the active language
 
-# UI (new terminal)
-cd frontend
-npm install
-npm run dev
-```
+## Best practices used
 
-Open [http://localhost:5173](http://localhost:5173). Vite proxies `/api` to the PHP server.
+### Backend (PHP)
+- **Dependency injection** — `AppFactory` composition root wires router, controllers, repository, and config
+- **OOP / SOLID** — controllers depend on `PortfolioRepositoryInterface`, not concrete data classes
+- **Repository pattern** — `InMemoryPortfolioRepository` implements the contract; easy to swap later
+- **PSR-4 autoloading** — `App\` namespace via Composer
+- **Strict types** — `declare(strict_types=1)` across PHP entrypoints
+- **Final classes** — controllers, router, HTTP helpers sealed against accidental extension
+- **Constructor property promotion** — PHP 8.4+ constructor injection
+- **Single responsibility** — routing, API responses (`JsonResponse`), SEO, and data access are separated
+- **No service locator in controllers** — dependencies are explicit constructor args
 
-## Production
+### Frontend (React / TypeScript)
+- Typed domain models in `src/types`
+- Context-based i18n (`LanguageProvider`) instead of scattered strings
+- Progressive enhancement for chat (local engine → optional AI)
+- Static JSON fallback when the PHP API is unavailable (Vercel)
 
-```bash
-cd frontend
-npm run build
-
-cd ../backend
-php -S localhost:8080 -t public
-```
-
-Or deploy with Apache/Nginx:
-
-1. Set document root to `backend/public`
-2. Route non-file requests to `index.php` (`.htaccess` is included for Apache)
-3. Update `site_url` in `backend/config/app.php`
-
-### Vercel (static frontend)
-
-This repo is configured for Vercel via `vercel.json` (builds `frontend/`).
-
-1. Import the GitHub repo in Vercel
-2. Leave Root Directory empty (repo root)
-3. Deploy - no PHP needed on Vercel; content loads from `frontend/public/data/*.json`
-
-Optional: set `OPENAI_API_KEY` in Vercel env vars to power the CV chat with GPT.
-Without it, the chat still works using a local CV knowledge engine.
-
-Refresh static data after CV content changes:
-
-```bash
-cd backend
-php scripts/export-static-data.php
-```
-
-## Config
-
-`backend/config/app.php` holds site URL, social links, meta description, and SEO keywords.
-
-## API
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/all` | Full portfolio payload |
-| GET | `/api/profile` | Profile |
-| GET | `/api/experience` | Work history |
-| GET | `/api/projects` | Projects |
-| GET | `/api/projects/{id}` | Single project |
-| GET | `/api/skills` | Skills |
-| GET | `/api/education` | Education |
-| GET | `/api/certifications` | Certifications |
-| GET | `/api/teaching` | Teaching |
-| GET | `/api/seo/meta` | SEO meta + JSON-LD |
-| GET | `/sitemap.xml` | Sitemap |
-| GET | `/robots.txt` | Robots |
+### General
+- Security headers on API responses (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`)
+- CORS limited to safe GET/OPTIONS for the public API
+- Content export script keeps Vercel static data in sync with the PHP source of truth
 
 ## License
 

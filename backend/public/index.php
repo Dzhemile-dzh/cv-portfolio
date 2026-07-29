@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-use App\Router;
+use App\AppFactory;
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 $uri = $_SERVER['REQUEST_URI'] ?? '/';
@@ -49,4 +49,5 @@ if ($method === 'GET' && str_starts_with($path, '/api') === false
     }
 }
 
-(new Router())->dispatch($method, $uri);
+$app = AppFactory::create();
+$app['router']->dispatch($method, $uri);
