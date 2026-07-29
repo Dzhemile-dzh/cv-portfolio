@@ -45,17 +45,19 @@ export function WeasleySection() {
                 className="absolute -bottom-3 -right-3 w-full h-full bg-[#f5c518] border-[3px] border-white"
                 aria-hidden="true"
               />
-              <img
-                src="/weasley.png"
-                alt={t.weasley.alt}
-                width={720}
-                height={540}
-                className="relative w-full h-full max-h-[420px] object-cover object-center border-[3px] border-white bg-[#141414]"
-                loading="lazy"
-              />
-              <p className="absolute left-3 bottom-3 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-1.5 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#ff4d3a]">
-                {t.weasley.badge}
-              </p>
+              <div className="relative overflow-hidden border-[3px] border-white bg-[#141414] max-h-[420px] aspect-[5/4]">
+                <img
+                  src="/weasley.png"
+                  alt={t.weasley.alt}
+                  width={720}
+                  height={540}
+                  className="w-full h-full object-cover object-[center_65%]"
+                  loading="lazy"
+                />
+                <p className="absolute left-3 bottom-3 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-1.5 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#ff4d3a]">
+                  {t.weasley.badge}
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
