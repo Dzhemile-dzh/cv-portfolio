@@ -136,7 +136,7 @@ export function WeasleySection() {
                   const isActive = idx === effectiveLineIndex && !reducedMotion;
                   const shown = isTyped ? line.text : isActive ? line.text.slice(0, charIndex) : '';
 
-                  const showCursor = isActive && charIndex < line.text.length;
+                  const showCursor = isActive;
 
                   return (
                     <p
@@ -144,7 +144,12 @@ export function WeasleySection() {
                       className={`${line.className} ${idx === 5 ? 'pt-2' : ''}`}
                     >
                       {shown}
-                      {showCursor && <span className="text-[#f5c518] ml-1 animate-pulse">▍</span>}
+                      {showCursor && (
+                        <span
+                          aria-hidden="true"
+                          className="ml-1 inline-block w-[6px] h-[1em] bg-[#f5c518] animate-pulse translate-y-[2px]"
+                        />
+                      )}
                     </p>
                   );
                 })}
