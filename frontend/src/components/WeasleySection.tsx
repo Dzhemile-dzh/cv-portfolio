@@ -54,7 +54,7 @@ export function WeasleySection() {
                   className="w-full h-full object-cover object-[center_65%]"
                   loading="lazy"
                 />
-                <p className="absolute left-3 bottom-3 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-1.5 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#ff4d3a]">
+                <p className="absolute right-3 top-3 bg-[#f5c518] text-[#141414] border-[3px] border-[#141414] px-3 py-1.5 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide shadow-[3px_3px_0_#ff4d3a]">
                   {t.weasley.badge}
                 </p>
               </div>
