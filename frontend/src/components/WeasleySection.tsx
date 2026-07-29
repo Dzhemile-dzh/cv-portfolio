@@ -1,9 +1,65 @@
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SectionLabel } from './About';
 import { useLanguage } from '../i18n/LanguageContext';
 
+type TerminalLine = {
+  text: string;
+  className: string;
+};
+
 export function WeasleySection() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+
+  const terminalLines = useMemo<TerminalLine[]>(
+    () => [
+      { text: `$ ${t.weasley.line1}`, className: 'text-[#0f9d8a]' },
+      { text: `ERROR: ${t.weasley.line2}`, className: 'text-[#ff4d3a]' },
+      { text: t.weasley.line3, className: 'text-white/70' },
+      { text: t.weasley.line4, className: 'text-[#f5c518]' },
+      { text: t.weasley.line5, className: 'text-white/70' },
+      { text: t.weasley.line6, className: 'text-[#3aa0ff]' },
+    ],
+    [locale, t.weasley.line1, t.weasley.line2, t.weasley.line3, t.weasley.line4, t.weasley.line5, t.weasley.line6],
+  );
+
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const isReduced = media?.matches ?? false;
+    setReducedMotion(isReduced);
+    setLineIndex(0);
+    setCharIndex(0);
+  }, [locale]);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      return;
+    }
+
+    if (lineIndex >= terminalLines.length) {
+      return;
+    }
+
+    const currentText = terminalLines[lineIndex]?.text ?? '';
+    if (charIndex < currentText.length) {
+      const id = window.setTimeout(() => setCharIndex((v) => v + 1), 18);
+      return () => window.clearTimeout(id);
+    }
+
+    const id = window.setTimeout(() => {
+      setLineIndex((v) => v + 1);
+      setCharIndex(0);
+    }, 240);
+
+    return () => window.clearTimeout(id);
+  }, [reducedMotion, lineIndex, charIndex, terminalLines]);
+
+  const effectiveLineIndex = reducedMotion ? terminalLines.length : lineIndex;
+  const typingDone = reducedMotion || effectiveLineIndex >= terminalLines.length;
 
   return (
     <section
@@ -71,21 +127,31 @@ export function WeasleySection() {
                 <span className="w-3 h-3 bg-[#ff4d3a] border border-white/40" aria-hidden="true" />
                 <span className="w-3 h-3 bg-[#f5c518] border border-white/40" aria-hidden="true" />
                 <span className="w-3 h-3 bg-[#0f9d8a] border border-white/40" aria-hidden="true" />
-                <span className="ml-2 font-mono text-[11px] text-white/60 truncate">
-                  {t.weasley.terminalTitle}
-                </span>
+                <span className="ml-2 font-mono text-[11px] text-white/60 truncate">{t.weasley.terminalTitle}</span>
               </div>
 
               <div className="p-4 sm:p-5 font-mono text-[12px] sm:text-[13px] leading-relaxed flex-1 space-y-2">
-                <p className="text-[#0f9d8a]">$ {t.weasley.line1}</p>
-                <p className="text-[#ff4d3a]">ERROR: {t.weasley.line2}</p>
-                <p className="text-white/70">{t.weasley.line3}</p>
-                <p className="text-[#f5c518]">{t.weasley.line4}</p>
-                <p className="text-white/70">{t.weasley.line5}</p>
-                <p className="text-[#3aa0ff] pt-2">{t.weasley.line6}</p>
-                <p className="text-white font-bold pt-3 border-t border-white/15 mt-3">
-                  {t.weasley.punchline}
-                </p>
+                {terminalLines.map((line, idx) => {
+                  const isTyped = idx < effectiveLineIndex;
+                  const isActive = idx === effectiveLineIndex && !reducedMotion;
+                  const shown = isTyped ? line.text : isActive ? line.text.slice(0, charIndex) : '';
+
+                  const showCursor = isActive && charIndex < line.text.length;
+
+                  return (
+                    <p
+                      key={idx}
+                      className={`${line.className} ${idx === 5 ? 'pt-2' : ''}`}
+                    >
+                      {shown}
+                      {showCursor && <span className="text-[#f5c518] ml-1 animate-pulse">▍</span>}
+                    </p>
+                  );
+                })}
+
+                {typingDone && (
+                  <p className="text-white font-bold pt-3 border-t border-white/15 mt-3">{t.weasley.punchline}</p>
+                )}
               </div>
             </motion.div>
           </div>

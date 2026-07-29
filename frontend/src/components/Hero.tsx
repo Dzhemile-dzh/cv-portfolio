@@ -107,7 +107,7 @@ export function Hero({ profile }: HeroProps) {
             </a>
             <a
               href="#projects"
-              className="btn-ghost !py-2.5 !px-4 text-sm !shadow-[4px_4px_0_#141414] hover:!shadow-[6px_6px_0_#141414]"
+              className="btn-ghost !py-2.5 !px-4 text-sm !shadow-[4px_4px_0_#0f9d8a] hover:!shadow-[6px_6px_0_#0f9d8a]"
             >
               {t.hero.viewProjects}
             </a>

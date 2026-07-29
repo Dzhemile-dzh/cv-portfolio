@@ -50,6 +50,8 @@ export interface UiMessages {
     featured: string;
     more: string;
     privateProject: string;
+    seeMore: string;
+    seeLess: string;
   };
   skills: {
     label: string;
@@ -164,6 +166,8 @@ const en: UiMessages = {
     featured: 'Featured',
     more: 'More projects',
     privateProject: 'Private client project',
+    seeMore: 'See more',
+    seeLess: 'Show less',
   },
   skills: {
     label: 'Skills',
@@ -284,6 +288,8 @@ const bg: UiMessages = {
     featured: 'Избрано',
     more: 'Още проекти',
     privateProject: 'Частен клиентски проект',
+    seeMore: 'Виж повече',
+    seeLess: 'Скрий',
   },
   skills: {
     label: 'Умения',
