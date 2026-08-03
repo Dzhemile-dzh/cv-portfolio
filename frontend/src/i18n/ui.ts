@@ -136,7 +136,7 @@ const en: UiMessages = {
     subtitleLine1: 'Data Science',
     subtitleLine2: 'Enthusiast',
     pitchLine1: 'I build reliable PHP backends, clean React interfaces, and PDF systems that hold up in production.',
-    pitchLine2: 'If you need someone who delivers, you are in the right place.',
+    pitchLine2: 'I ship with Cursor and AI agents, and integrate services like Stripe and EmailJS when products need them.',
     downloadCv: 'Download CV',
     viewProjects: 'View projects',
     contactMe: 'Contact me',
@@ -226,9 +226,9 @@ const en: UiMessages = {
     send: 'Send',
     suggestions: [
       'Does she know PHP?',
+      'Does she use Cursor / AI agents?',
+      'Has she integrated Stripe?',
       'Where does she work now?',
-      'Does she teach kids?',
-      'Is she good with React?',
     ],
   },
   seo: {
@@ -258,7 +258,7 @@ const bg: UiMessages = {
     subtitleLine1: 'Data Science',
     subtitleLine2: 'ентусиаст',
     pitchLine1: 'Изграждам надеждни PHP бекенди, чисти React интерфейси и PDF системи, които издържат в продукция.',
-    pitchLine2: 'Ако търсите човек, който свършва работата, сте на правилното място.',
+    pitchLine2: 'Работя с Cursor и AI агенти, и интегрирам услуги като Stripe и EmailJS, когато продуктът има нужда.',
     downloadCv: 'Изтегли CV',
     viewProjects: 'Виж проекти',
     contactMe: 'Свържи се',
@@ -348,9 +348,9 @@ const bg: UiMessages = {
     send: 'Изпрати',
     suggestions: [
       'Знае ли PHP?',
+      'Работи ли с Cursor / AI агенти?',
+      'Интегрирала ли е Stripe?',
       'Къде работи сега?',
-      'Обучава ли деца?',
-      'Добра ли е с React?',
     ],
   },
   seo: {

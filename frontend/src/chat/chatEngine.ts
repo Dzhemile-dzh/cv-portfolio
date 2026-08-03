@@ -34,6 +34,9 @@ function findSkill(data: PortfolioData, query: string): string | null {
   }
 
   const aliases: Record<string, string[]> = {
+    cursor: ['cursor', 'ai agent', 'agents', 'prompt'],
+    stripe: ['stripe', 'payment', 'payments'],
+    emailjs: ['emailjs', 'email js'],
     php: ['php', 'phalcon', 'yii', 'yii2', 'symfony', 'drupal', 'latte', 'twig', 'smarty'],
     react: ['react', 'jsx'],
     javascript: ['javascript', 'js', 'ecmascript'],
@@ -345,6 +348,44 @@ export function answerFromCv(question: string, data: PortfolioData, locale: Loca
     return bg
       ? `Да - има оранжево коте на име Weasley. Той е неофициалният QA / debug консултант в домашния офис и често сяда върху лаптопа точно когато има грешки.`
       : `Yes - she has an orange tabby named Weasley. He is the unofficial QA / debug consultant at home office and usually sits on the laptop right when errors show up.`;
+  }
+
+  if (
+    includesAny(q, [
+      'cursor',
+      'ai agent',
+      'agents',
+      'chatgpt',
+      'copilot',
+      'prompt',
+      'ai tool',
+      'ai tools',
+      'агент',
+      'курсор',
+      'изкуствен интелект',
+    ])
+  ) {
+    return bg
+      ? `Да - работи ежедневно с AI инструменти, най-вече Cursor и coding agents. Използва ги за по-бърза доставка, като запазва code review, тестове и статичен анализ.`
+      : `Yes - she works daily with AI tools, especially Cursor and coding agents. She uses them to ship faster while keeping code review, tests, and static analysis in place.`;
+  }
+
+  if (includesAny(q, ['stripe', 'payment', 'payments', 'checkout', 'плащане', 'плащания'])) {
+    return bg
+      ? `Да - има опит с интеграция на Stripe за плащания в продукти и third-party потоци.`
+      : `Yes - she has experience integrating Stripe for payments in product and third-party flows.`;
+  }
+
+  if (includesAny(q, ['emailjs', 'email js', 'transactional email', 'мейл', 'email service'])) {
+    return bg
+      ? `Да - интегрирала е EmailJS за транзакционни имейли и клиентски contact/email потоци.`
+      : `Yes - she has integrated EmailJS for transactional email and client-side contact/email flows.`;
+  }
+
+  if (includesAny(q, ['third party', 'third-party', 'integration', 'integrations', 'интеграц'])) {
+    return bg
+      ? `Да - има опит с third-party интеграции, включително Stripe, EmailJS, REST API-та и cURL интеграции.`
+      : `Yes - she has third-party integration experience, including Stripe, EmailJS, REST APIs, and cURL integrations.`;
   }
 
   if (

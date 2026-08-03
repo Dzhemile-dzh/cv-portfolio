@@ -7,7 +7,7 @@
     "phone": "(+359) 895627511",
     "location": "Варна, България",
     "photo": "/profile.png",
-    "about": "Опитен full-stack софтуерен инженер с над 7 години опит в уеб разработката, със специализация в PHP frameworks, JavaScript и бази данни. Страстна към data science и готова да прилага техническите си умения в анализ на данни и machine learning за решаване на сложни проблеми. Обучава и деца от 2. до 4. клас на програмиране чрез Roblox и Minecraft Education. Търси предизвикателна роля в динамична организация, където да допринася и да се развива.",
+    "about": "Опитен full-stack софтуерен инженер с над 7 години опит в уеб разработката, със специализация в PHP frameworks, JavaScript и бази данни. Работи ежедневно с AI инструменти като Cursor и coding agents за по-бърза доставка без компромис с качеството. Има опит с интеграция на third-party услуги, включително Stripe плащания и EmailJS транзакционни имейли. Страстна към data science и обучава деца от 2. до 4. клас на програмиране чрез Roblox и Minecraft Education. Търси предизвикателна роля в динамична организация, където да допринася и да се развива.",
     "socials": [
       {
         "name": "LinkedIn",
@@ -54,6 +54,7 @@
         "Разработвам и поддържам PHP 8.5 printout API, който генерира професионални PDF-и за клиенти в строителната индустрия (екосистема BauBuddy).",
         "Изграждам и портирам printout маршрути с Twig/Latte шаблони, schema-driven документни модели и multi-engine рендиране (Playwright, wkhtmltopdf, DOCX).",
         "Интегрирам външни API-та чрез cURL (включително паралелни multi-call заявки), authentication principals и йерархично зареждане на документи/схеми.",
+        "Използвам Cursor и AI coding agents в ежедневния workflow за по-бърза доставка, като запазвам code review, тестове и статичен анализ.",
         "Поддържам високо качество на кода с PHPStan, Rector, Mago, Stylelint, PHPUnit и Docker-базирани локални/CI процеси."
       ],
       "technologies": [
@@ -64,7 +65,8 @@
         "Docker",
         "PHPStan",
         "GitLab CI",
-        "PSL"
+        "PSL",
+        "Cursor"
       ]
     },
     {
@@ -264,14 +266,15 @@
     {
       "id": "portfolio-website",
       "title": "Това портфолио",
-      "description": "Модерно CV портфолио с React 19 и PHP 8.5 API. SEO оптимизация, JSON-LD, responsive дизайн и RESTful backend за съдържанието.",
-      "longDescription": "Демонстрира full-stack умения с разединена архитектура: React SPA с Framer Motion, PHP backend с PSR-4 autoloading и production-ready SEO включително sitemap и Open Graph.",
+      "description": "Модерно CV портфолио с React 19 и PHP 8.5 API. Изградено с Cursor и AI агенти, със SEO, JSON-LD, многоезичен UI и CV чатбот.",
+      "longDescription": "Демонстрира full-stack доставка с AI-assisted development в Cursor: React SPA, PHP PSR-4 API с dependency injection, EN/BG i18n и production SEO. Показва практическа работа с agents за по-бърз shipping при чиста архитектура.",
       "technologies": [
         "React",
         "PHP 8.5",
         "TypeScript",
         "Tailwind CSS",
-        "Vite"
+        "Vite",
+        "Cursor"
       ],
       "category": "Full-Stack",
       "links": [
@@ -332,6 +335,19 @@
       "GitLab CI",
       "PHPStan",
       "Rector"
+    ],
+    "AI и агенти": [
+      "Cursor",
+      "AI Agents",
+      "Prompt Engineering",
+      "AI-assisted Development"
+    ],
+    "Интеграции": [
+      "Stripe",
+      "EmailJS",
+      "REST APIs",
+      "cURL",
+      "Swagger"
     ],
     "Обучение и образователни технологии": [
       "Roblox Studio",

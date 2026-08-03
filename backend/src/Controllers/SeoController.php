@@ -113,7 +113,7 @@ final class SeoController
                 'url' => $this->config['site_url'],
                 'image' => $this->config['site_url'] . ($profile['photo'] ?? '/profile.jpg'),
                 'sameAs' => array_column($profile['socials'], 'url'),
-                'knowsAbout' => ['PHP', 'React', 'JavaScript', 'Drupal', 'Data Science', 'MySQL', 'Roblox', 'Minecraft Education'],
+                'knowsAbout' => ['PHP', 'React', 'JavaScript', 'Drupal', 'Data Science', 'MySQL', 'Cursor', 'AI Agents', 'Stripe', 'EmailJS', 'Roblox', 'Minecraft Education'],
             ],
         ];
     }

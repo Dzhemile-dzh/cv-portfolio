@@ -21,7 +21,7 @@ final class InMemoryPortfolioRepository implements PortfolioRepositoryInterface
             'phone' => '(+359) 895627511',
             'location' => 'Varna, Bulgaria',
             'photo' => '/profile.png',
-            'about' => 'Experienced full-stack software engineer with over 7 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Passionate about data science, eager to apply technical expertise in data analysis and machine learning to solve complex problems. Also teaching programming to children in grades 2-4 through Roblox and Minecraft Education. Seeking a challenging role in a dynamic organization to contribute with my skills and grow further.',
+            'about' => 'Experienced full-stack software engineer with over 7 years of experience in web development, specializing in PHP frameworks, JavaScript, and databases. Works daily with AI tools such as Cursor and coding agents to ship faster without sacrificing code quality. Experienced integrating third-party services including Stripe payments and EmailJS transactional email. Passionate about data science and teaching programming to children in grades 2-4 through Roblox and Minecraft Education. Seeking a challenging role in a dynamic organization to contribute with my skills and grow further.',
             'socials' => [
                 ['name' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/dzhemile-ahmed-42icdi/', 'icon' => 'linkedin'],
                 ['name' => 'GitHub', 'url' => 'https://github.com/Dzhemile-dzh', 'icon' => 'github'],
@@ -51,9 +51,10 @@ final class InMemoryPortfolioRepository implements PortfolioRepositoryInterface
                     'Develop and maintain a PHP 8.5 printout API that generates professional PDFs for construction industry clients (BauBuddy ecosystem).',
                     'Build and port printout routes with Twig/Latte templates, schema-driven document models, and multi-engine rendering (Playwright, wkhtmltopdf, DOCX).',
                     'Integrate external APIs via cURL (including parallel multi-calls), authentication principals, and hierarchical document/schema fetching.',
+                    'Use Cursor and AI coding agents as part of the daily workflow to accelerate delivery while keeping reviews, tests, and static analysis strict.',
                     'Uphold high code quality with PHPStan, Rector, Mago, Stylelint, PHPUnit, and Docker-based local/CI workflows.',
                 ],
-                'technologies' => ['PHP 8.5', 'Twig', 'Latte', 'Playwright', 'Docker', 'PHPStan', 'GitLab CI', 'PSL'],
+                'technologies' => ['PHP 8.5', 'Twig', 'Latte', 'Playwright', 'Docker', 'PHPStan', 'GitLab CI', 'PSL', 'Cursor'],
             ],
             [
                 'company' => 'INDEAVR',
@@ -189,9 +190,9 @@ final class InMemoryPortfolioRepository implements PortfolioRepositoryInterface
             [
                 'id' => 'portfolio-website',
                 'title' => 'This Portfolio Website',
-                'description' => 'Modern CV portfolio built with React 19 and PHP 8.5 API. Features SEO optimization, JSON-LD structured data, responsive design, and a RESTful backend serving portfolio content.',
-                'longDescription' => 'Demonstrates full-stack capabilities with a decoupled architecture: React SPA frontend with Framer Motion animations, PHP backend with PSR-4 autoloading, and production-ready SEO including sitemap and Open Graph meta tags.',
-                'technologies' => ['React', 'PHP 8.5', 'TypeScript', 'Tailwind CSS', 'Vite'],
+                'description' => 'Modern CV portfolio built with React 19 and PHP 8.5 API. Built with Cursor and AI agents, with SEO, JSON-LD, multilingual UI, and a CV chatbot.',
+                'longDescription' => 'Demonstrates full-stack delivery with AI-assisted development in Cursor: React SPA, PHP PSR-4 API with dependency injection, EN/BG i18n, and production SEO. Shows practical use of agents for faster shipping with clean architecture.',
+                'technologies' => ['React', 'PHP 8.5', 'TypeScript', 'Tailwind CSS', 'Vite', 'Cursor'],
                 'category' => 'Full-Stack',
                 'links' => [
                     ['label' => 'Source Code', 'url' => 'https://github.com/Dzhemile-dzh/cv-portfolio'],
@@ -243,6 +244,12 @@ final class InMemoryPortfolioRepository implements PortfolioRepositoryInterface
             ],
             'DevOps & Tools' => [
                 'Docker', 'Jenkins', 'Pantheon', 'SonarCloud', 'Swagger', 'GitLab CI', 'PHPStan', 'Rector',
+            ],
+            'AI & Agents' => [
+                'Cursor', 'AI Agents', 'Prompt Engineering', 'AI-assisted Development',
+            ],
+            'Integrations' => [
+                'Stripe', 'EmailJS', 'REST APIs', 'cURL', 'Swagger',
             ],
             'Teaching & Education Tech' => [
                 'Roblox Studio', 'Minecraft Education Edition', 'Lua', 'STEM Education',
